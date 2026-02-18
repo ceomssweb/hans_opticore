@@ -1,0 +1,225 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 16px 0;
+  transition: var(--transition);
+  background: transparent;
+
+  &.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.08);
+    padding: 10px 0;
+
+    .logo .logo-text .brand-name {
+      color: var(--primary);
+    }
+
+    .logo .logo-text .brand-tagline {
+      color: var(--text-light);
+    }
+
+    .nav-links a {
+      color: var(--text);
+
+      &:hover, &.active {
+        color: var(--accent);
+      }
+    }
+  }
+}
+
+.nav-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  z-index: 10;
+
+  .logo-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--gradient-accent);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-accent);
+
+    span {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--white);
+    }
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+
+    .brand-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--white);
+      letter-spacing: -0.3px;
+      line-height: 1.2;
+      transition: var(--transition);
+    }
+
+    .brand-tagline {
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.7);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: var(--transition);
+    }
+  }
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+
+  a {
+    padding: 8px 20px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    border-radius: 50px;
+    transition: var(--transition);
+    position: relative;
+
+    &:hover {
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    &.active {
+      color: var(--accent);
+      background: var(--accent-glow);
+    }
+  }
+}
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background: var(--gradient-accent);
+  color: var(--white);
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+  box-shadow: var(--shadow-accent);
+  z-index: 10;
+
+  i {
+    font-size: 0.8rem;
+    transition: var(--transition);
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(0, 180, 216, 0.35);
+
+    i {
+      transform: translateX(4px);
+    }
+  }
+}
+
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 10;
+
+  span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: var(--transition);
+  }
+
+  &.active {
+    span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    span:nth-child(2) {
+      opacity: 0;
+    }
+    span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    a {
+      font-size: 1.3rem;
+      color: var(--white);
+      padding: 12px 32px;
+    }
+  }
+
+  .nav-cta {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: flex;
+  }
+
+  .navbar.scrolled .mobile-toggle span {
+    background: var(--primary);
+  }
+
+  .mobile-toggle.active span {
+    background: var(--white) !important;
+  }
+}

@@ -1,0 +1,171 @@
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <div class="hero-particles">
+      <div class="particle p1"></div>
+      <div class="particle p2"></div>
+      <div class="particle p3"></div>
+    </div>
+    <div class="hero-grid-overlay"></div>
+  </div>
+  <div class="container">
+    <div class="page-hero-content animate-fade-up">
+      <div class="hero-breadcrumb">
+        <a routerLink="/">Home</a>
+        <i class="fas fa-chevron-right"></i>
+        <span>Contact Us</span>
+      </div>
+      <h1>Let's <span class="highlight">Connect</span></h1>
+      <p>Ready to transform your business? Get in touch with us for a free consultation and start your journey towards operational excellence.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section section">
+  <div class="container">
+    <div class="contact-grid">
+      <!-- Contact Info -->
+      <div class="contact-info-side animate-fade-up">
+        <h2>Get In Touch</h2>
+        <p class="contact-intro">Partner with HANS OptiCore to streamline operations and drive sustainable growth. We're here to help.</p>
+
+        <div class="contact-cards">
+          <div class="contact-card">
+            <div class="cc-icon"><i class="fas fa-envelope"></i></div>
+            <div class="cc-content">
+              <h4>Email Us</h4>
+              <a href="mailto:info@hansopticore.com">info&#64;hansopticore.com</a>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="cc-icon"><i class="fas fa-phone-alt"></i></div>
+            <div class="cc-content">
+              <h4>Call Us</h4>
+              <a href="tel:+918431797555">+91-8431797555</a>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="cc-icon"><i class="fab fa-linkedin-in"></i></div>
+            <div class="cc-content">
+              <h4>Connect on LinkedIn</h4>
+              <a href="https://www.linkedin.com/company/hans-opticore" target="_blank" rel="noopener">HANS OptiCore</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-promise">
+          <div class="promise-icon"><i class="fas fa-clock"></i></div>
+          <div>
+            <h4>Quick Response</h4>
+            <p>We typically respond within 24 hours. Your business optimization journey starts here.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-side animate-scale-in">
+        @if (!formSubmitted) {
+        <div class="form-card">
+          <h3>Request a Free Consultation</h3>
+          <p>Fill in the details below and we'll get back to you shortly.</p>
+
+          <form (ngSubmit)="onSubmit()" class="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" [(ngModel)]="formData.name" name="name" placeholder="Your full name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" [(ngModel)]="formData.email" name="email" placeholder="your@email.com" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" [(ngModel)]="formData.phone" name="phone" placeholder="+91-XXXXXXXXXX">
+              </div>
+              <div class="form-group">
+                <label for="company">Company Name</label>
+                <input type="text" id="company" [(ngModel)]="formData.company" name="company" placeholder="Your company">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="service">Service Interest</label>
+              <select id="service" [(ngModel)]="formData.service" name="service">
+                <option value="">Select a service</option>
+                <option value="operational-excellence">Operational Excellence</option>
+                <option value="supply-chain">Supply Chain & Inventory Optimization</option>
+                <option value="financial-performance">Financial Performance Improvement</option>
+                <option value="business-process">Business Process & System Setup</option>
+                <option value="sme-growth">SME Growth & Turnaround Support</option>
+                <option value="general">General Consultation</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" [(ngModel)]="formData.message" name="message" placeholder="Tell us about your business challenges and goals..." rows="5" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary form-submit">
+              <span>Send Message</span>
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+        }
+
+        @if (formSubmitted) {
+        <div class="form-card success-card">
+          <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+          <h3>Thank You!</h3>
+          <p>Your consultation request has been initiated via email. We'll connect with you shortly to discuss how we can help optimize your business.</p>
+          <button (click)="formSubmitted = false" class="btn btn-outline">Send Another Message</button>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CONTACT US -->
+<section class="why-contact section" style="background: var(--gray-50);">
+  <div class="container">
+    <div class="section-header animate-fade-up">
+      <div class="section-label">Why Reach Out</div>
+      <h2>What Happens <span>Next?</span></h2>
+    </div>
+    <div class="next-steps-grid">
+      <div class="next-step animate-fade-up">
+        <div class="ns-number">1</div>
+        <div class="ns-icon"><i class="fas fa-calendar-check"></i></div>
+        <h4>Schedule a Call</h4>
+        <p>We'll arrange a convenient time to discuss your business needs and challenges.</p>
+      </div>
+      <div class="next-step animate-fade-up">
+        <div class="ns-number">2</div>
+        <div class="ns-icon"><i class="fas fa-clipboard-list"></i></div>
+        <h4>Free Assessment</h4>
+        <p>We'll conduct an initial assessment of your operations to identify improvement areas.</p>
+      </div>
+      <div class="next-step animate-fade-up">
+        <div class="ns-number">3</div>
+        <div class="ns-icon"><i class="fas fa-file-alt"></i></div>
+        <h4>Get a Proposal</h4>
+        <p>Receive a tailored proposal with clear objectives, timeline, and expected outcomes.</p>
+      </div>
+      <div class="next-step animate-fade-up">
+        <div class="ns-number">4</div>
+        <div class="ns-icon"><i class="fas fa-rocket"></i></div>
+        <h4>Start Transforming</h4>
+        <p>Begin your journey towards operational excellence and sustainable growth.</p>
+      </div>
+    </div>
+  </div>
+</section>
