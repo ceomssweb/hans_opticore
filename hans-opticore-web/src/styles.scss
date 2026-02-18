@@ -229,7 +229,7 @@ img {
 }
 
 .animate-fade-up {
-  opacity: 0;
+  opacity: 0.3;
   transform: translateY(30px);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
@@ -240,7 +240,7 @@ img {
 }
 
 .animate-fade-in {
-  opacity: 0;
+  opacity: 0.3;
   transition: opacity 0.7s ease;
 }
 
@@ -249,7 +249,7 @@ img {
 }
 
 .animate-scale-in {
-  opacity: 0;
+  opacity: 0.3;
   transform: scale(0.95);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
@@ -276,17 +276,17 @@ img {
 }
 
 @keyframes slide-in-left {
-  from { opacity: 0; transform: translateX(-40px); }
+  from { opacity: 0.3; transform: translateX(-40px); }
   to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes slide-in-right {
-  from { opacity: 0; transform: translateX(40px); }
+  from { opacity: 0.3; transform: translateX(40px); }
   to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes count-up {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0.3; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
