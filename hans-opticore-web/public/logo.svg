@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00b4d8"/>
+      <stop offset="100%" stop-color="#0077b6"/>
+    </linearGradient>
+    <linearGradient id="darkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a1e33"/>
+      <stop offset="50%" stop-color="#0f2b46"/>
+      <stop offset="100%" stop-color="#143a5c"/>
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#48cae4"/>
+      <stop offset="100%" stop-color="#00b4d8"/>
+    </linearGradient>
+    <linearGradient id="barGrad" x1="50%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" stop-color="#0096c7"/>
+      <stop offset="100%" stop-color="#48cae4"/>
+    </linearGradient>
+    <filter id="innerGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="subtleShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#00b4d8" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect x="24" y="24" width="464" height="464" rx="96" ry="96" fill="url(#darkGrad)"/>
+
+  <!-- Subtle inner border -->
+  <rect x="40" y="40" width="432" height="432" rx="82" ry="82" fill="none" stroke="url(#accentGrad)" stroke-width="1.5" opacity="0.15"/>
+
+  <!-- Corner light accents -->
+  <circle cx="96" cy="96" r="40" fill="#00b4d8" opacity="0.04"/>
+  <circle cx="416" cy="416" r="40" fill="#00b4d8" opacity="0.04"/>
+
+  <!-- Stylized H letterform -->
+  <g filter="url(#subtleShadow)">
+    <!-- Left pillar -->
+    <rect x="148" y="148" width="48" height="216" rx="24" fill="url(#accentGrad)"/>
+    <!-- Right pillar -->
+    <rect x="316" y="148" width="48" height="216" rx="24" fill="url(#accentGrad)"/>
+    <!-- Crossbar -->
+    <rect x="148" y="232" width="216" height="48" rx="24" fill="url(#glowGrad)"/>
+  </g>
+
+  <!-- Growth chart bars (rising) — integrated into H crossbar area -->
+  <g opacity="0.6">
+    <rect x="200" y="285" width="10" height="24" rx="5" fill="url(#barGrad)" opacity="0.5"/>
+    <rect x="220" y="275" width="10" height="34" rx="5" fill="url(#barGrad)" opacity="0.65"/>
+    <rect x="240" y="262" width="10" height="47" rx="5" fill="url(#barGrad)" opacity="0.8"/>
+    <rect x="260" y="246" width="10" height="63" rx="5" fill="url(#barGrad)" opacity="0.9"/>
+    <rect x="280" y="226" width="10" height="83" rx="5" fill="url(#barGrad)"/>
+    <rect x="300" y="206" width="10" height="103" rx="5" fill="url(#barGrad)"/>
+  </g>
+
+  <!-- Upward growth arrow -->
+  <g filter="url(#subtleShadow)">
+    <line x1="195" y1="300" x2="310" y2="195" stroke="url(#glowGrad)" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+    <polygon points="314,188 300,188 314,202" fill="url(#glowGrad)" opacity="0.7"/>
+  </g>
+
+  <!-- Top accent line -->
+  <rect x="224" y="128" width="64" height="3" rx="1.5" fill="url(#glowGrad)" opacity="0.3"/>
+</svg>

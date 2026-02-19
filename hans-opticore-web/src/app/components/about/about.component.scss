@@ -394,7 +394,7 @@
     position: absolute;
     top: 12px;
     right: 16px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Outfit', sans-serif;
     font-size: 2rem;
     font-weight: 800;
     color: var(--gray-100);
@@ -489,16 +489,91 @@
 
 @media (max-width: 768px) {
   .page-hero {
-    padding: 140px 0 80px;
+    padding: 130px 0 60px;
+  }
+
+  .page-hero-content {
+    h1 {
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+    }
+
+    p {
+      font-size: 1rem;
+    }
   }
 
   .about-highlights {
     grid-template-columns: 1fr;
   }
+
+  .founder-avatar {
+    .avatar-placeholder {
+      width: 160px;
+      height: 160px;
+
+      i {
+        font-size: 3rem;
+      }
+    }
+
+    .avatar-accent {
+      width: 180px;
+      height: 180px;
+    }
+  }
+
+  .cta-section {
+    padding: 60px 0;
+  }
 }
 
 @media (max-width: 600px) {
+  .page-hero {
+    padding: 110px 0 48px;
+  }
+
   .strengths-grid {
     grid-template-columns: 1fr;
+  }
+
+  .strength-card {
+    padding: 28px 20px;
+  }
+
+  .highlight-card {
+    padding: 20px;
+  }
+
+  .visual-card.vc-main {
+    padding: 24px;
+  }
+
+  .founder-bio {
+    .bio-lead {
+      font-size: 1rem;
+    }
+  }
+
+  .expertise-grid {
+    gap: 8px;
+  }
+
+  .expertise-tag {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+  }
+
+  .cta-section {
+    padding: 48px 0;
+  }
+
+  .cta-content {
+    h2 {
+      font-size: clamp(1.3rem, 4vw, 1.8rem);
+    }
+
+    p {
+      font-size: 0.95rem;
+    }
   }
 }
