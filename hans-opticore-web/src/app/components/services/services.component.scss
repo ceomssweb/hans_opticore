@@ -26,7 +26,7 @@
   .particle {
     position: absolute;
     border-radius: 50%;
-    background: rgba(0, 180, 216, 0.12);
+    background: rgba(13, 148, 136, 0.12);
     animation: float 6s ease-in-out infinite;
   }
   .p1 { width: 150px; height: 150px; top: 10%; right: 15%; }
@@ -254,7 +254,7 @@
       font-family: 'Outfit', sans-serif;
       font-size: 1.8rem;
       font-weight: 800;
-      color: var(--accent);
+      color: var(--secondary);
       line-height: 1;
       margin-bottom: 6px;
     }
@@ -266,17 +266,21 @@
     }
   }
 
-  &.sc-card::before { background: linear-gradient(135deg, #f77f00, #fcbf49); }
-  &.sc-card .sdc-icon { background: rgba(247, 127, 0, 0.1); color: var(--secondary); }
+  &.sc-card::before { background: linear-gradient(135deg, #F97316, #FB923C); }
+  &.sc-card .sdc-icon { background: rgba(249, 115, 22, 0.1); color: var(--secondary); }
+  &.sc-card .metric .metric-value { color: var(--accent); }
 
-  &.fin-card::before { background: linear-gradient(135deg, #2d6a4f, #52b788); }
-  &.fin-card .sdc-icon { background: rgba(45, 106, 79, 0.1); color: #2d6a4f; }
+  &.fin-card::before { background: linear-gradient(135deg, #0D9488, #14B8A6); }
+  &.fin-card .sdc-icon { background: rgba(13, 148, 136, 0.1); color: var(--accent); }
+  &.fin-card .metric .metric-value { color: var(--secondary); }
 
-  &.bp-card::before { background: linear-gradient(135deg, #7209b7, #b5179e); }
-  &.bp-card .sdc-icon { background: rgba(114, 9, 183, 0.1); color: #7209b7; }
+  &.bp-card::before { background: linear-gradient(135deg, #0A2540, #0F3460); }
+  &.bp-card .sdc-icon { background: rgba(10, 37, 64, 0.08); color: var(--primary); }
+  &.bp-card .metric .metric-value { color: var(--accent); }
 
   &.growth-card::before { background: var(--gradient-warm); }
-  &.growth-card .sdc-icon { background: rgba(247, 127, 0, 0.1); color: var(--secondary); }
+  &.growth-card .sdc-icon { background: rgba(249, 115, 22, 0.1); color: var(--secondary); }
+  &.growth-card .metric .metric-value { color: var(--accent); }
 }
 
 /* APPROACH SECTION */
@@ -311,7 +315,7 @@
     justify-content: center;
     width: 32px;
     height: 32px;
-    background: var(--gradient-accent);
+    background: var(--gradient-cta);
     border-radius: 50%;
     color: var(--white);
     font-size: 0.85rem;

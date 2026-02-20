@@ -1,32 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
-  --primary: #0f2b46;
-  --primary-light: #1a3d5c;
-  --accent: #00b4d8;
-  --accent-light: #48cae4;
-  --accent-glow: rgba(0, 180, 216, 0.15);
-  --secondary: #f77f00;
-  --secondary-light: #fcbf49;
-  --dark: #0a1628;
-  --dark-alt: #111d33;
-  --text: #2d3748;
-  --text-light: #718096;
-  --text-muted: #a0aec0;
+  --primary: #0A2540;
+  --primary-light: #0F3460;
+  --accent: #0D9488;
+  --accent-light: #14B8A6;
+  --accent-glow: rgba(13, 148, 136, 0.12);
+  --secondary: #F97316;
+  --secondary-light: #FB923C;
+  --dark: #061325;
+  --dark-alt: #0A1E33;
+  --text: #1F2937;
+  --text-light: #4B5563;
+  --text-muted: #9CA3AF;
   --white: #ffffff;
-  --off-white: #f7fafc;
-  --gray-50: #f8fafc;
-  --gray-100: #edf2f7;
-  --gray-200: #e2e8f0;
-  --gradient-primary: linear-gradient(135deg, #0f2b46 0%, #1a3d5c 50%, #0d4f8b 100%);
-  --gradient-accent: linear-gradient(135deg, #00b4d8 0%, #0096c7 100%);
-  --gradient-hero: linear-gradient(135deg, #0a1628 0%, #0f2b46 40%, #1a3d5c 100%);
-  --gradient-warm: linear-gradient(135deg, #f77f00 0%, #fcbf49 100%);
+  --off-white: #F9FAFB;
+  --gray-50: #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gradient-primary: linear-gradient(135deg, #0A2540 0%, #0F3460 50%, #0D4F8B 100%);
+  --gradient-accent: linear-gradient(135deg, #0D9488 0%, #0F766E 100%);
+  --gradient-hero: linear-gradient(135deg, #061325 0%, #0A2540 40%, #0F3460 100%);
+  --gradient-warm: linear-gradient(135deg, #F97316 0%, #FB923C 100%);
+  --gradient-cta: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
   --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
   --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.15);
-  --shadow-accent: 0 8px 30px rgba(0, 180, 216, 0.2);
+  --shadow-accent: 0 8px 30px rgba(13, 148, 136, 0.2);
+  --shadow-cta: 0 8px 30px rgba(249, 115, 22, 0.3);
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 20px;
@@ -205,14 +207,14 @@ img {
 }
 
 .btn-primary {
-  background: var(--gradient-accent);
+  background: var(--gradient-cta);
   color: var(--white);
-  box-shadow: var(--shadow-accent);
+  box-shadow: var(--shadow-cta);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 35px rgba(0, 180, 216, 0.35);
+  box-shadow: 0 12px 35px rgba(249, 115, 22, 0.4);
 }
 
 .btn-secondary {
@@ -252,7 +254,7 @@ img {
 }
 
 .animate-fade-up {
-  opacity: 0.3;
+  opacity: 0.5;
   transform: translateY(30px);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
@@ -263,7 +265,7 @@ img {
 }
 
 .animate-fade-in {
-  opacity: 0.3;
+  opacity: 0.5;
   transition: opacity 0.7s ease;
 }
 
@@ -272,7 +274,7 @@ img {
 }
 
 .animate-scale-in {
-  opacity: 0.3;
+  opacity: 0.5;
   transform: scale(0.95);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
@@ -288,8 +290,8 @@ img {
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(0, 180, 216, 0.2); }
-  50% { box-shadow: 0 0 40px rgba(0, 180, 216, 0.4); }
+  0%, 100% { box-shadow: 0 0 20px rgba(13, 148, 136, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(13, 148, 136, 0.4); }
 }
 
 @keyframes gradient-shift {
@@ -299,17 +301,17 @@ img {
 }
 
 @keyframes slide-in-left {
-  from { opacity: 0.3; transform: translateX(-40px); }
+  from { opacity: 0.5; transform: translateX(-40px); }
   to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes slide-in-right {
-  from { opacity: 0.3; transform: translateX(40px); }
+  from { opacity: 0.5; transform: translateX(40px); }
   to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes count-up {
-  from { opacity: 0.3; transform: translateY(20px); }
+  from { opacity: 0.5; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -327,7 +329,7 @@ img {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent);
+  background: var(--primary);
   border-radius: 10px;
 }
 

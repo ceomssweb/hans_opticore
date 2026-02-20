@@ -1,7 +1,7 @@
 <nav class="navbar" [class.scrolled]="isScrolled()" [class.menu-open]="isMobileMenuOpen()">
   <div class="nav-container">
     <a routerLink="/" class="logo" (click)="closeMobileMenu()">
-      <img src="logo.svg" alt="HANS OptiCore Logo" class="logo-img">
+      <img [src]="isScrolled() ? 'logo_og.png' : 'logo_wht.png'" alt="HANS OptiCore Logo" class="logo-img">
       <div class="logo-text">
         <span class="brand-name">HANS OptiCore</span>
         <span class="brand-tagline">Operational Excellence</span>

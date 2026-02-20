@@ -31,14 +31,14 @@
   .particle {
     position: absolute;
     border-radius: 50%;
-    background: rgba(0, 180, 216, 0.15);
+    background: rgba(13, 148, 136, 0.12);
     animation: float 6s ease-in-out infinite;
   }
 
   .p1 { width: 200px; height: 200px; top: 10%; right: 10%; animation-delay: 0s; }
   .p2 { width: 150px; height: 150px; bottom: 20%; left: 5%; animation-delay: 1s; }
   .p3 { width: 100px; height: 100px; top: 50%; right: 30%; animation-delay: 2s; }
-  .p4 { width: 80px; height: 80px; top: 30%; left: 20%; animation-delay: 3s; background: rgba(247, 127, 0, 0.1); }
+  .p4 { width: 80px; height: 80px; top: 30%; left: 20%; animation-delay: 3s; background: rgba(249, 115, 22, 0.08); }
   .p5 { width: 120px; height: 120px; bottom: 10%; right: 20%; animation-delay: 4s; }
 }
 
@@ -180,7 +180,7 @@
   &.hc-2 {
     animation-delay: 0.4s;
     margin-left: 30px;
-    .hc-icon { background: rgba(247, 127, 0, 0.2); color: var(--secondary-light); }
+    .hc-icon { background: rgba(249, 115, 22, 0.15); color: var(--secondary); }
   }
 
   &.hc-3 {
@@ -642,14 +642,14 @@
   &:hover {
     background: rgba(255, 255, 255, 0.1);
     transform: translateY(-6px);
-    border-color: rgba(0, 180, 216, 0.3);
+    border-color: rgba(13, 148, 136, 0.3);
   }
 
   .industry-icon {
     width: 64px;
     height: 64px;
     border-radius: var(--radius-md);
-    background: rgba(0, 180, 216, 0.15);
+    background: rgba(13, 148, 136, 0.15);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -779,7 +779,7 @@
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: rgba(0, 180, 216, 0.2);
+    background: rgba(13, 148, 136, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -810,7 +810,7 @@
     .particle {
       position: absolute;
       border-radius: 50%;
-      background: rgba(0, 180, 216, 0.1);
+      background: rgba(13, 148, 136, 0.1);
       animation: float 8s ease-in-out infinite;
     }
     .cp1 { width: 200px; height: 200px; top: -50px; right: 10%; }

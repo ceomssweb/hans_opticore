@@ -43,7 +43,6 @@
   .logo-img {
     width: 40px;
     height: 40px;
-    border-radius: var(--radius-sm);
     flex-shrink: 0;
     object-fit: contain;
   }
@@ -176,7 +175,7 @@
   i {
     width: 36px;
     height: 36px;
-    background: rgba(0, 180, 216, 0.1);
+    background: rgba(13, 148, 136, 0.1);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -205,6 +204,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 
   p {
@@ -216,6 +217,12 @@
     color: var(--accent);
     font-weight: 600;
     font-size: 0.85rem;
+  }
+
+  .footer-credits {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.75rem;
+    font-style: italic;
   }
 }
 
