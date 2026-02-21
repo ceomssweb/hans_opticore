@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HANS OptiCore - Company Letterhead</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #E5E7EB;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: 'DM Sans', sans-serif;
+      padding: 40px;
+      gap: 40px;
+    }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      color: #4B5563;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    /* A4 at 96 DPI: 794px x 1123px. At 150 DPI scale: ~1240 x 1754 */
+    .letterhead {
+      width: 794px;
+      min-height: 1123px;
+      background: #FFFFFF;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* === TOP HEADER BAR === */
+    .lh-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 32px 48px;
+      background: linear-gradient(135deg, #0A2540 0%, #0F3460 100%);
+      position: relative;
+    }
+
+    .lh-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #0D9488 0%, #14B8A6 50%, #0D9488 100%);
+    }
+
+    .lh-header .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .lh-header .logo-area img {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+    }
+
+    .lh-header .brand-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: #FFFFFF;
+      line-height: 1.1;
+    }
+
+    .lh-header .brand-tagline {
+      font-size: 0.6rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .lh-header .header-contact {
+      text-align: right;
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.8;
+    }
+
+    .lh-header .header-contact strong {
+      color: #14B8A6;
+      font-weight: 600;
+    }
+
+    /* === CONTENT AREA === */
+    .lh-body {
+      padding: 48px 64px;
+      min-height: 820px;
+      position: relative;
+    }
+
+    .lh-body .date-line {
+      font-size: 0.85rem;
+      color: #4B5563;
+      margin-bottom: 32px;
+    }
+
+    .lh-body .recipient {
+      margin-bottom: 28px;
+      font-size: 0.9rem;
+      color: #1F2937;
+      line-height: 1.8;
+    }
+
+    .lh-body .subject {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #0A2540;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #0D9488;
+      display: inline-block;
+    }
+
+    .lh-body .body-text {
+      font-size: 0.9rem;
+      color: #4B5563;
+      line-height: 1.9;
+      margin-bottom: 16px;
+    }
+
+    .lh-body .signature-area {
+      margin-top: 48px;
+    }
+
+    .lh-body .sig-line {
+      width: 180px;
+      height: 1px;
+      background: #9CA3AF;
+      margin-bottom: 8px;
+    }
+
+    .lh-body .sig-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #0A2540;
+    }
+
+    .lh-body .sig-role {
+      font-size: 0.8rem;
+      color: #0D9488;
+      font-weight: 500;
+    }
+
+    /* Watermark */
+    .lh-watermark {
+      position: absolute;
+      right: 40px;
+      bottom: 120px;
+      opacity: 0.04;
+    }
+
+    .lh-watermark img {
+      width: 260px;
+      height: 260px;
+      object-fit: contain;
+    }
+
+    /* === FOOTER === */
+    .lh-footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 48px;
+      background: #F9FAFB;
+      border-top: 1px solid #E5E7EB;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .lh-footer .footer-address {
+      font-size: 0.65rem;
+      color: #9CA3AF;
+      line-height: 1.6;
+    }
+
+    .lh-footer .footer-brand {
+      text-align: right;
+    }
+
+    .lh-footer .footer-brand .url {
+      font-size: 0.7rem;
+      color: #0D9488;
+      font-weight: 600;
+    }
+
+    .lh-footer .footer-brand .tm {
+      font-size: 0.55rem;
+      color: #9CA3AF;
+      margin-top: 2px;
+    }
+
+    /* === SIDE ACCENT === */
+    .lh-side-accent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, #0A2540 0%, #0D9488 50%, #F97316 100%);
+    }
+
+    @media print {
+      body { background: white; padding: 0; gap: 0; }
+      h1 { display: none; }
+      .letterhead {
+        box-shadow: none;
+        width: 100%;
+        min-height: 100vh;
+        page-break-after: always;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>HANS OptiCore – Company Letterhead</h1>
+
+  <div class="letterhead">
+    <div class="lh-side-accent"></div>
+
+    <!-- HEADER -->
+    <div class="lh-header">
+      <div class="logo-area">
+        <img src="../logo_wht.png" alt="HANS OptiCore Logo">
+        <div>
+          <div class="brand-name">HANS OptiCore</div>
+          <div class="brand-tagline">Operational Excellence</div>
+        </div>
+      </div>
+      <div class="header-contact">
+        <strong>HANS OptiCore LLP</strong><br>
+        # 269, Sainivas, 7th Cross, Vijayabank Colony<br>
+        Krishnarajapuram, Bengaluru – 560 036<br>
+        +91 84317 97555 | hak@hansopticore.com
+      </div>
+    </div>
+
+    <!-- BODY -->
+    <div class="lh-body">
+      <div class="date-line">Date: ____________________</div>
+
+      <div class="recipient">
+        To,<br>
+        ____________________<br>
+        ____________________<br>
+        ____________________
+      </div>
+
+      <div class="subject">Subject: ________________________________________</div>
+
+      <div class="body-text">
+        Dear Sir/Madam,
+      </div>
+
+      <div class="body-text" style="min-height: 300px;">
+        <!-- Letter content area -->
+      </div>
+
+      <div class="body-text">
+        Thanking you,<br>
+        Yours sincerely,
+      </div>
+
+      <div class="signature-area">
+        <div class="sig-line"></div>
+        <div class="sig-name">H. Ananda Krishnan</div>
+        <div class="sig-role">Founder & Managing Partner</div>
+      </div>
+
+      <!-- Watermark -->
+      <div class="lh-watermark">
+        <img src="../logo_og.png" alt="Watermark">
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="lh-footer">
+      <div class="footer-address">
+        <strong>Corporate Office:</strong> # 269, Sainivas, 7th Cross, Vijayabank Colony, Krishnarajapuram, Bengaluru – 560 036<br>
+        CIN/LLP ID: ________________ | GSTIN: ________________
+      </div>
+      <div class="footer-brand">
+        <div class="url">www.hansopticore.com</div>
+        <div class="tm">© 2026 HANS OptiCore™ LLP. All rights reserved.</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
