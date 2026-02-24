@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HANS OptiCore - Letterhead (Light)</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #F3F4F6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+      font-family: 'DM Sans', sans-serif;
+    }
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      color: #4B5563;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 30px;
+    }
+
+    /* A4 at 96 DPI = 794 × 1123 px */
+    .letterhead {
+      width: 794px;
+      height: 1123px;
+      background: #FFFFFF;
+      border-radius: 4px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* TOP ACCENT LINE */
+    .top-accent {
+      height: 6px;
+      background: linear-gradient(90deg, #0A2540 0%, #0D9488 50%, #F97316 100%);
+      flex-shrink: 0;
+    }
+
+    /* HEADER */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 30px 60px 20px 60px;
+      border-bottom: 1px solid #E5E7EB;
+      flex-shrink: 0;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .header-left img {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+    }
+
+    .brand-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: #0A2540;
+      line-height: 1.1;
+    }
+
+    .brand-tagline {
+      font-size: 0.58rem;
+      font-weight: 600;
+      color: #0D9488;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .header-right {
+      text-align: right;
+      font-size: 0.68rem;
+      color: #6B7280;
+      line-height: 1.6;
+    }
+
+    /* BODY */
+    .body {
+      flex: 1;
+      padding: 50px 60px 30px 60px;
+      position: relative;
+    }
+
+    .body .date-block {
+      text-align: right;
+      font-size: 0.85rem;
+      color: #6B7280;
+      margin-bottom: 40px;
+    }
+
+    .body .recipient {
+      margin-bottom: 30px;
+      line-height: 1.8;
+      font-size: 0.88rem;
+      color: #374151;
+    }
+
+    .body .subject {
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: #0A2540;
+      margin-bottom: 24px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #0D9488;
+      display: inline-block;
+    }
+
+    .body .content-area {
+      font-size: 0.88rem;
+      color: #4B5563;
+      line-height: 1.8;
+      margin-bottom: 50px;
+    }
+
+    .body .content-area p {
+      margin-bottom: 14px;
+    }
+
+    .body .signature-area {
+      margin-top: 50px;
+    }
+
+    .body .signature-area .line {
+      width: 200px;
+      height: 1px;
+      background: #D1D5DB;
+      margin-bottom: 8px;
+    }
+
+    .body .signature-area .sig-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #0A2540;
+    }
+
+    .body .signature-area .sig-role {
+      font-size: 0.75rem;
+      color: #0D9488;
+      font-weight: 600;
+    }
+
+    /* WATERMARK */
+    .watermark {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 320px;
+      height: 320px;
+      opacity: 0.03;
+      pointer-events: none;
+    }
+
+    .watermark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* FOOTER */
+    .footer {
+      padding: 16px 60px;
+      border-top: 1px solid #E5E7EB;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.62rem;
+      color: #9CA3AF;
+      flex-shrink: 0;
+    }
+
+    .footer-left {
+      flex: 1;
+    }
+
+    .footer-right {
+      text-align: right;
+      flex: 1;
+    }
+
+    .bottom-accent {
+      height: 4px;
+      background: linear-gradient(90deg, #F97316 0%, #0D9488 50%, #0A2540 100%);
+      flex-shrink: 0;
+    }
+
+    @media print {
+      body { background: white; padding: 0; }
+      h1 { display: none; }
+      .letterhead { box-shadow: none; border-radius: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>HANS OptiCore – Letterhead (Light)</h1>
+
+  <div class="letterhead">
+    <div class="top-accent"></div>
+
+    <div class="header">
+      <div class="header-left">
+        <img src="../logo_og.png" alt="HANS OptiCore Logo">
+        <div>
+          <div class="brand-name">HANS OptiCore</div>
+          <div class="brand-tagline">Operational Excellence</div>
+        </div>
+      </div>
+      <div class="header-right">
+        HANS OptiCore LLP<br>
+        # 269, Sainivas, 7th Cross<br>
+        Vijayabank Colony, KR Puram<br>
+        Bengaluru – 560 036, India
+      </div>
+    </div>
+
+    <div class="body">
+      <div class="watermark">
+        <img src="../logo_og.png" alt="">
+      </div>
+
+      <div class="date-block">[Date]</div>
+
+      <div class="recipient">
+        <strong>To,</strong><br>
+        [Recipient Name]<br>
+        [Company / Organization]<br>
+        [Address Line]
+      </div>
+
+      <div class="subject">Subject: [Subject Line]</div>
+
+      <div class="content-area">
+        <p>Dear [Name],</p>
+        <p>
+          [Body text goes here. This letterhead is designed for professional correspondence
+          from HANS OptiCore LLP — an operations consulting firm specializing in cost
+          reduction, supply chain optimization, and financial performance improvement.]
+        </p>
+        <p>
+          [Continue the letter content as needed. The template supports multiple paragraphs
+          and maintains consistent professional formatting throughout.]
+        </p>
+        <p>Looking forward to your response.</p>
+        <p>Warm Regards,</p>
+      </div>
+
+      <div class="signature-area">
+        <div class="line"></div>
+        <div class="sig-name">H. Ananda Krishnan</div>
+        <div class="sig-role">Founder & Managing Partner</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-left">
+        © 2026 HANS OptiCore™ LLP &nbsp;|&nbsp; CIN: [Registration No.]
+      </div>
+      <div class="footer-right">
+        info@hansopticore.com &nbsp;|&nbsp; +91 84317 97555 &nbsp;|&nbsp; www.hansopticore.com
+      </div>
+    </div>
+
+    <div class="bottom-accent"></div>
+  </div>
+</body>
+</html>
