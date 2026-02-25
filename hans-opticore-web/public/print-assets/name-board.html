@@ -6,6 +6,19 @@
   <title>HANS OptiCore - Building Name Board</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
+    @font-face {
+      font-family: 'Noto Sans Kannada';
+      src: url('NotoSansKannada-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Noto Sans Kannada';
+      src: url('NotoSansKannada-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
@@ -948,6 +961,15 @@
       gap: 16px;
     }
 
+    .name-board-light .local-name {
+      font-family: 'Noto Sans Kannada', 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 2.5rem;
+      color: #0A2540;
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+
     .name-board-light .company-name {
       font-family: 'Outfit', sans-serif;
       font-weight: 900;
@@ -1247,8 +1269,9 @@
       <div class="separator"></div>
 
       <div class="text-section">
+        <div class="local-name">ಹ್ಯಾನ್ಸ್ ಆಪ್ಟಿಕೋರ್ ಎಲ್ಎಲ್ಪಿ</div>
         <div class="company-name">
-          <span class="hans">HANS</span> <span class="opticore">OptiCore</span>
+          <span class="hans">HANS</span> <span class="opticore">OPTICORE</span> <span class="hans">LLP</span>
         </div>
         <div class="tagline-divider"></div>
         <div class="tagline">Operational Excellence</div>
@@ -1258,6 +1281,7 @@
           <span class="info-item"><span class="info-dot"></span> +91 84317 97555</span>
         </div>
       </div>
+
     </div>
   </div>
 
