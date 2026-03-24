@@ -2,13 +2,6 @@ import { Component, OnInit, AfterViewInit, PLATFORM_ID, Inject, signal } from '@
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { isPlatformBrowser, ViewportScroller, NgClass } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import emailjs from '@emailjs/browser';
-
-// ── EmailJS Configuration ──
-// Replace these with your actual EmailJS credentials from https://www.emailjs.com/
-const EMAILJS_PUBLIC_KEY = '8PIFiZD3z_n9RTiNz';
-const EMAILJS_SERVICE_ID = 'service_eld67ds';
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
 
 @Component({
   selector: 'app-contact',
@@ -49,7 +42,6 @@ export class ContactComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     if (this.isBrowser) {
-      emailjs.init(EMAILJS_PUBLIC_KEY);
       this.route.fragment.subscribe(fragment => {
         if (fragment) {
           setTimeout(() => {
@@ -81,34 +73,29 @@ export class ContactComponent implements OnInit, AfterViewInit {
     }
   }
 
-  async onSubmit() {
+  onSubmit() {
     if (this.contactForm.invalid) {
       this.contactForm.markAllAsTouched();
       return;
     }
 
-    this.isSending.set(true);
-    const formValue = this.contactForm.value;
+    const v = this.contactForm.value;
+    const to = 'info@hansopticore.com';
+    const subject = encodeURIComponent(`Consultation Request from ${v.name}`);
+    const body = encodeURIComponent(
+      `Name: ${v.name}\n` +
+      `Email: ${v.email}\n` +
+      `Phone: ${v.phone || 'Not provided'}\n` +
+      `Company: ${v.company || 'Not provided'}\n` +
+      `Service Interest: ${v.service || 'Not specified'}\n\n` +
+      `Message:\n${v.message}`
+    );
 
-    const templateParams = {
-      from_name: formValue.name,
-      from_email: formValue.email,
-      phone: formValue.phone || 'Not provided',
-      company: formValue.company || 'Not provided',
-      service: formValue.service || 'Not specified',
-      message: formValue.message,
-      reply_to: formValue.email
-    };
+    const mailtoLink = `mailto:${to}?subject=${subject}&body=${body}`;
+    window.location.href = mailtoLink;
 
-    try {
-      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
-      this.showAlert('success', 'Message Sent!', 'Your consultation request has been delivered successfully. We\'ll get back to you within 24 hours.');
-      this.contactForm.reset();
-    } catch {
-      this.showAlert('error', 'Oops! Something went wrong', 'We couldn\'t send your message right now. Please try again or reach out directly at info@hansopticore.com');
-    } finally {
-      this.isSending.set(false);
-    }
+    this.showAlert('success', 'Email Client Opened!', 'Your email client has been opened with the message pre-filled. Please click Send in your email app to deliver it.');
+    this.contactForm.reset();
   }
 
   showAlert(type: 'success' | 'error', title: string, message: string) {
