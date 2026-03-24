@@ -1,6 +1,7 @@
 import { Component, HostListener, signal, PLATFORM_ID, Inject } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, NavigationEnd } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
@@ -12,10 +13,16 @@ import { isPlatformBrowser } from '@angular/common';
 export class NavbarComponent {
   isScrolled = signal(false);
   isMobileMenuOpen = signal(false);
+  isContactPage = signal(false);
   private isBrowser: boolean;
 
-  constructor(@Inject(PLATFORM_ID) platformId: Object) {
+  constructor(@Inject(PLATFORM_ID) platformId: Object, private router: Router) {
     this.isBrowser = isPlatformBrowser(platformId);
+    this.router.events.pipe(
+      filter((event): event is NavigationEnd => event instanceof NavigationEnd)
+    ).subscribe(event => {
+      this.isContactPage.set(event.urlAfterRedirects.startsWith('/contact'));
+    });
   }
 
   @HostListener('window:scroll')

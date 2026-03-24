@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HANS OptiCore - Visiting Card (Light)</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #F3F4F6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: 'DM Sans', sans-serif;
+      padding: 40px;
+      gap: 60px;
+    }
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      color: #4B5563;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+    .card-container {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
+    }
+    .label {
+      font-size: 0.85rem;
+      color: #9CA3AF;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    /* CARD SIZE: 3.5in x 2in at 300 DPI = 1050px x 600px */
+    .card {
+      width: 1050px;
+      height: 600px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      position: relative;
+    }
+
+    /* ======== FRONT ======== */
+    .card-front {
+      background: #FFFFFF;
+      display: flex;
+      align-items: center;
+    }
+
+    .card-front::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #0A2540 0%, #0D9488 50%, #F97316 100%);
+    }
+
+    .card-front .left-section {
+      flex: 1;
+      padding: 60px 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .card-front .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .card-front .logo-area img {
+      width: 68px;
+      height: 68px;
+      object-fit: contain;
+    }
+
+    .card-front .logo-area .brand-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: #0A2540;
+      line-height: 1.1;
+    }
+
+    .card-front .logo-area .brand-tagline {
+      font-size: 0.6rem;
+      font-weight: 600;
+      color: #0D9488;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .card-front .person-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 1.45rem;
+      color: #0A2540;
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .card-front .person-role {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #0D9488;
+      margin-bottom: 24px;
+      letter-spacing: 0.3px;
+    }
+
+    .card-front .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      font-size: 0.78rem;
+      color: #4B5563;
+    }
+
+    .card-front .contact-row .icon {
+      width: 22px;
+      height: 22px;
+      background: rgba(13,148,136,0.08);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.55rem;
+      color: #0D9488;
+      flex-shrink: 0;
+    }
+
+    .card-front .right-section {
+      width: 300px;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      background: #F9FAFB;
+      border-left: 1px solid #E5E7EB;
+    }
+
+    .card-front .accent-circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 2px solid rgba(13,148,136,0.06);
+    }
+    .card-front .accent-circle.c1 { width: 300px; height: 300px; top: -60px; right: -80px; }
+    .card-front .accent-circle.c2 { width: 200px; height: 200px; bottom: -40px; right: 40px; }
+
+    .card-front .right-content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .card-front .right-content img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      opacity: 0.12;
+    }
+
+    /* ======== BACK ======== */
+    .card-back {
+      background: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-back::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #0A2540 0%, #0D9488 50%, #F97316 100%);
+    }
+
+    .card-back::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #F97316 0%, #0D9488 50%, #0A2540 100%);
+    }
+
+    .card-back .back-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .card-back .back-logo img {
+      width: 76px;
+      height: 76px;
+      object-fit: contain;
+    }
+
+    .card-back .back-logo .brand-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.7rem;
+      color: #0A2540;
+      line-height: 1.1;
+      text-align: left;
+    }
+
+    .card-back .back-logo .brand-tagline {
+      font-size: 0.65rem;
+      color: #0D9488;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .card-back .back-services {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .card-back .service-item {
+      font-size: 0.68rem;
+      color: #4B5563;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card-back .service-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #0D9488;
+    }
+
+    .card-back .back-url {
+      font-size: 0.8rem;
+      color: #0D9488;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .card-back .back-tm {
+      position: absolute;
+      bottom: 18px;
+      font-size: 0.55rem;
+      color: #9CA3AF;
+    }
+
+    @media print {
+      body { background: white; padding: 0; }
+      .label, h1 { display: none; }
+      .card { box-shadow: none; border-radius: 0; page-break-after: always; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card-container">
+    <!-- FRONT - Founder -->
+    <div>
+     
+      <div class="card card-front">
+        <div class="left-section">
+          <div class="logo-area">
+            <img src="../logo_og.png" alt="Logo">
+            <div>
+              <div class="brand-name">HANS OptiCore</div>
+              <div class="brand-tagline">Operational Excellence</div>
+            </div>
+          </div>
+          <div class="person-name">H. Ananda Krishnan</div>
+          <div class="person-role">Founder & Managing Partner</div>
+          <div class="contact-row">
+            <span class="icon">✉</span>
+            <span>info@hansopticore.com</span>
+          </div>
+          <div class="contact-row">
+            <span class="icon">✆</span>
+            <span>+91 84317 97555</span>
+          </div>
+          <div class="contact-row">
+            <span class="icon">⌂</span>
+            <span>www.hansopticore.com</span>
+          </div>
+          <div class="contact-row">
+            <span class="icon">◎</span>
+            <span>Bengaluru, India</span>
+          </div>
+        </div>
+        <div class="right-section">
+          <div class="accent-circle c1"></div>
+          <div class="accent-circle c2"></div>
+          <div class="right-content">
+            <img src="../logo_og.png" alt="Watermark">
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</body>
+</html>

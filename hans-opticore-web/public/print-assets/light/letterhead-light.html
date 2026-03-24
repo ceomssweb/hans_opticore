@@ -12,7 +12,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 40px;
+      padding: 0;
       font-family: 'DM Sans', sans-serif;
     }
     h1 {
@@ -102,6 +102,8 @@
       font-size: 0.85rem;
       color: #6B7280;
       margin-bottom: 40px;
+	  margin-right: 100px;
+	  
     }
 
     .body .recipient {
@@ -156,15 +158,15 @@
       font-weight: 600;
     }
 
-    /* WATERMARK */
+    /* WATERMARK – centered logo background, 40% of page size */
     .watermark {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 320px;
-      height: 320px;
-      opacity: 0.03;
+      width: 450px;
+      height: 450px;
+      opacity: 0.06;
       pointer-events: none;
     }
 
@@ -209,7 +211,6 @@
   </style>
 </head>
 <body>
-  <h1>HANS OptiCore – Letterhead (Light)</h1>
 
   <div class="letterhead">
     <div class="top-accent"></div>
@@ -235,7 +236,7 @@
         <img src="../logo_og.png" alt="">
       </div>
 
-      <div class="date-block">[Date]</div>
+      <div class="date-block">Date:</div>
 
       <div class="recipient">
         <strong>To,</strong><br>

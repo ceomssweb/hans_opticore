@@ -16,7 +16,7 @@
         <span>Contact Us</span>
       </div>
       <h1>Let's <span class="highlight">Connect</span></h1>
-      <p>Ready to transform your business with operations consulting and business process improvement? Get in touch for a free consultation and start your journey towards operational excellence.</p>
+      <p>Ready to transform your business with operations consulting and business process improvement? Get in touch for a Start Optimizing Today and start your journey towards operational excellence.</p>
     </div>
   </div>
 </section>
@@ -27,7 +27,7 @@
     <div class="contact-grid">
       <!-- Contact Info -->
       <div class="contact-info-side animate-fade-up">
-        <h2>Get In Touch</h2>
+        <h2 id="get-in-touch">Get In Touch</h2>
         <p class="contact-intro">Partner with HANS OptiCore for SME business consulting services, cost reduction consulting, and supply chain consulting in India.</p>
 
         <!-- Partner Cards -->
@@ -77,9 +77,9 @@
                 <i class="fas fa-phone-alt"></i>
                 <span>+91 84314 97555</span>
               </a>
-              <a href="mailto:nak@hansopticore.com" class="partner-contact-item">
+              <a href="mailto:info@hansopticore.com" class="partner-contact-item">
                 <i class="fas fa-envelope"></i>
-                <span>nak&#64;hansopticore.com</span>
+                <span>info&#64;hansopticore.com</span>
               </a>
               <a href="https://www.hansopticore.com" target="_blank" class="partner-contact-item">
                 <i class="fas fa-globe"></i>
@@ -124,72 +124,124 @@
 
       <!-- Contact Form -->
       <div class="contact-form-side animate-scale-in">
-        @if (!formSubmitted) {
         <div class="form-card">
-          <h3>Request a Free Consultation</h3>
+          <h3>Request a Start Optimizing Today</h3>
           <p>Fill in the details below for operations consulting, business process improvement, or any of our SME business consulting services.</p>
 
-          <form (ngSubmit)="onSubmit()" class="contact-form">
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form" novalidate>
             <div class="form-row">
               <div class="form-group">
                 <label for="name">Full Name *</label>
-                <input type="text" id="name" [(ngModel)]="formData.name" name="name" placeholder="Your full name" required>
+                <input type="text" id="name" formControlName="name" placeholder="Your full name"
+                  [ngClass]="{'input-error': f['name'].touched && f['name'].invalid}">
+                @if (f['name'].touched && f['name'].errors) {
+                  <span class="field-error">
+                    @if (f['name'].errors['required']) { Full name is required }
+                    @if (f['name'].errors['minlength']) { Name must be at least 2 characters }
+                  </span>
+                }
               </div>
               <div class="form-group">
                 <label for="email">Email Address *</label>
-                <input type="email" id="email" [(ngModel)]="formData.email" name="email" placeholder="your@email.com" required>
+                <input type="email" id="email" formControlName="email" placeholder="your&#64;email.com"
+                  [ngClass]="{'input-error': f['email'].touched && f['email'].invalid}">
+                @if (f['email'].touched && f['email'].errors) {
+                  <span class="field-error">
+                    @if (f['email'].errors['required']) { Email address is required }
+                    @if (f['email'].errors['email']) { Please enter a valid email address }
+                  </span>
+                }
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
                 <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" [(ngModel)]="formData.phone" name="phone" placeholder="+91-XXXXXXXXXX">
+                <input type="tel" id="phone" formControlName="phone" placeholder="+91-XXXXXXXXXX"
+                  [ngClass]="{'input-error': f['phone'].touched && f['phone'].invalid}">
+                @if (f['phone'].touched && f['phone'].errors) {
+                  <span class="field-error">
+                    @if (f['phone'].errors['pattern']) { Please enter a valid phone number }
+                  </span>
+                }
               </div>
               <div class="form-group">
                 <label for="company">Company Name</label>
-                <input type="text" id="company" [(ngModel)]="formData.company" name="company" placeholder="Your company">
+                <input type="text" id="company" formControlName="company" placeholder="Your company">
               </div>
             </div>
 
             <div class="form-group">
               <label for="service">Service Interest</label>
-              <select id="service" [(ngModel)]="formData.service" name="service">
+              <select id="service" formControlName="service">
                 <option value="">Select a service</option>
-                <option value="operational-excellence">Operational Excellence</option>
-                <option value="supply-chain">Supply Chain & Inventory Optimization</option>
-                <option value="financial-performance">Financial Performance Improvement</option>
-                <option value="business-process">Business Process & System Setup</option>
-                <option value="sme-growth">SME Growth & Turnaround Support</option>
-                <option value="general">General Consultation</option>
+                <option value="Operational Excellence">Operational Excellence</option>
+                <option value="Supply Chain & Inventory Optimization">Supply Chain & Inventory Optimization</option>
+                <option value="Financial Performance Improvement">Financial Performance Improvement</option>
+                <option value="Business Process & System Setup">Business Process & System Setup</option>
+                <option value="SME Growth & Turnaround Support">SME Growth & Turnaround Support</option>
+                <option value="General Consultation">General Consultation</option>
               </select>
             </div>
 
             <div class="form-group">
               <label for="message">Message *</label>
-              <textarea id="message" [(ngModel)]="formData.message" name="message" placeholder="Tell us about your business challenges and goals..." rows="5" required></textarea>
+              <textarea id="message" formControlName="message" placeholder="Tell us about your business challenges and goals..." rows="5"
+                [ngClass]="{'input-error': f['message'].touched && f['message'].invalid}"></textarea>
+              @if (f['message'].touched && f['message'].errors) {
+                <span class="field-error">
+                  @if (f['message'].errors['required']) { Message is required }
+                  @if (f['message'].errors['minlength']) { Message must be at least 10 characters }
+                </span>
+              }
             </div>
 
-            <button type="submit" class="btn btn-primary form-submit">
-              <span>Send Message</span>
-              <i class="fas fa-paper-plane"></i>
+            <button type="submit" class="btn btn-primary form-submit" [disabled]="isSending()">
+              @if (isSending()) {
+                <span class="spinner"></span>
+                <span>Sending...</span>
+              } @else {
+                <span>Send Message</span>
+                <i class="fas fa-paper-plane"></i>
+              }
             </button>
           </form>
         </div>
-        }
-
-        @if (formSubmitted) {
-        <div class="form-card success-card">
-          <div class="success-icon"><i class="fas fa-check-circle"></i></div>
-          <h3>Thank You!</h3>
-          <p>Your consultation request has been initiated via email. We'll connect with you shortly to discuss how we can help optimize your business.</p>
-          <button (click)="formSubmitted = false" class="btn btn-outline">Send Another Message</button>
-        </div>
-        }
       </div>
     </div>
   </div>
 </section>
+
+<!-- ALERT OVERLAY -->
+@if (alertState().show) {
+<div class="alert-overlay" (click)="dismissAlert()">
+  <div class="alert-card" [ngClass]="alertState().type" (click)="$event.stopPropagation()">
+    <button class="alert-close" (click)="dismissAlert()" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="alert-icon-wrap">
+      @if (alertState().type === 'success') {
+        <div class="alert-icon success-icon">
+          <i class="fas fa-check"></i>
+        </div>
+      } @else {
+        <div class="alert-icon error-icon">
+          <i class="fas fa-exclamation-triangle"></i>
+        </div>
+      }
+    </div>
+    <h3 class="alert-title">{{ alertState().title }}</h3>
+    <p class="alert-message">{{ alertState().message }}</p>
+    <button class="alert-btn" [ngClass]="alertState().type" (click)="dismissAlert()">
+      @if (alertState().type === 'success') {
+        <span>Great, Thanks!</span>
+      } @else {
+        <span>Try Again</span>
+      }
+    </button>
+  </div>
+</div>
+}
 
 <!-- WHY CONTACT US -->
 <section class="why-contact section" style="background: var(--gray-50);">

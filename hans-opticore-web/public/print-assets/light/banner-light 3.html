@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HANS OptiCore - Banners (Light)</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #F3F4F6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+      font-family: 'DM Sans', sans-serif;
+      gap: 80px;
+    }
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      color: #4B5563;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+    .label {
+      font-size: 0.85rem;
+      color: #9CA3AF;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    .banner-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ═══════════════════════════════════════════
+       1. ROLL-UP STANDEE  (2ft × 6ft → 500 × 1500px)
+       ═══════════════════════════════════════════ */
+    .rollup {
+      width: 500px;
+      height: 1500px;
+      background: #FFFFFF;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .rollup .top-bar {
+      height: 8px;
+      background: linear-gradient(90deg, #0A2540 0%, #0D9488 50%, #F97316 100%);
+      flex-shrink: 0;
+    }
+
+    .rollup .header {
+      padding: 60px 40px 40px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .rollup .header img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      margin-bottom: 20px;
+    }
+
+    .rollup .header .brand-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 2.4rem;
+      color: #0A2540;
+      line-height: 1.1;
+    }
+
+    .rollup .header .brand-tagline {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #0D9488;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+
+    .rollup .divider {
+      width: 60px;
+      height: 3px;
+      background: #0D9488;
+      margin: 0 auto;
+    }
+
+    .rollup .headline-area {
+      padding: 50px 40px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .rollup .headline-area h2 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 1.7rem;
+      color: #0A2540;
+      line-height: 1.35;
+      margin-bottom: 16px;
+    }
+
+    .rollup .headline-area p {
+      font-size: 0.92rem;
+      color: #6B7280;
+      line-height: 1.6;
+    }
+
+    .rollup .services-grid {
+      padding: 20px 40px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .rollup .service-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 20px;
+      background: #F9FAFB;
+      border-radius: 10px;
+      border: 1px solid #E5E7EB;
+    }
+
+    .rollup .service-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(13,148,136,0.08);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .rollup .service-text {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #0A2540;
+    }
+
+    .rollup .service-desc {
+      font-size: 0.72rem;
+      color: #6B7280;
+      margin-top: 2px;
+    }
+
+    .rollup .cta-area {
+      padding: 40px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .rollup .cta-box {
+      display: inline-block;
+      padding: 16px 40px;
+      background: #F97316;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 50px;
+      letter-spacing: 1px;
+    }
+
+    .rollup .footer {
+      padding: 24px 40px;
+      background: #F9FAFB;
+      border-top: 1px solid #E5E7EB;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .rollup .footer .url {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #0A2540;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .rollup .footer .contact {
+      font-size: 0.75rem;
+      color: #6B7280;
+      margin-top: 6px;
+    }
+
+    .rollup .bot-bar {
+      height: 8px;
+      background: linear-gradient(90deg, #F97316 0%, #0D9488 50%, #0A2540 100%);
+      flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════════════
+       2. HORIZONTAL FLEX  (8ft × 3ft → 1200 × 400px)
+       ═══════════════════════════════════════════ */
+    .horizontal {
+      width: 1200px;
+      height: 400px;
+      background: #FFFFFF;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .horizontal .top-strip {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #0A2540 0%, #0D9488 50%, #F97316 100%);
+    }
+
+    .horizontal .bot-strip {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #F97316 0%, #0D9488 50%, #0A2540 100%);
+    }
+
+    .horizontal .hz-left {
+      padding: 40px 50px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-shrink: 0;
+      border-right: 1px solid #E5E7EB;
+    }
+
+    .horizontal .hz-left img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+    }
+
+    .horizontal .hz-left .brand-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.9rem;
+      color: #0A2540;
+      line-height: 1.1;
+    }
+
+    .horizontal .hz-left .brand-tagline {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: #0D9488;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .horizontal .hz-center {
+      flex: 1;
+      padding: 30px 50px;
+    }
+
+    .horizontal .hz-center h2 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #0A2540;
+      margin-bottom: 12px;
+    }
+
+    .horizontal .hz-services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .horizontal .hz-tag {
+      padding: 6px 16px;
+      background: #F9FAFB;
+      border: 1px solid #E5E7EB;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #0A2540;
+    }
+
+    .horizontal .hz-right {
+      width: 260px;
+      padding: 30px;
+      text-align: center;
+      flex-shrink: 0;
+      border-left: 1px solid #E5E7EB;
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .horizontal .hz-right .cta-box {
+      display: inline-block;
+      padding: 14px 30px;
+      background: #F97316;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border-radius: 50px;
+      margin-bottom: 14px;
+    }
+
+    .horizontal .hz-right .url {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #0A2540;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .horizontal .hz-right .phone {
+      font-size: 0.72rem;
+      color: #6B7280;
+      margin-top: 4px;
+    }
+
+    /* ═══════════════════════════════════════════
+       3. TABLE-TOP CARD  (900 × 280px)
+       ═══════════════════════════════════════════ */
+    .tabletop {
+      width: 900px;
+      height: 280px;
+      background: #FFFFFF;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .tabletop .top-strip {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #0A2540 0%, #0D9488 50%, #F97316 100%);
+    }
+
+    .tabletop .bot-strip {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #F97316 0%, #0D9488 50%, #0A2540 100%);
+    }
+
+    .tabletop .tt-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 30px 40px;
+      flex-shrink: 0;
+      border-right: 1px solid #E5E7EB;
+    }
+
+    .tabletop .tt-left img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+
+    .tabletop .tt-left .brand-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: #0A2540;
+      line-height: 1.1;
+    }
+
+    .tabletop .tt-left .brand-tagline {
+      font-size: 0.55rem;
+      font-weight: 600;
+      color: #0D9488;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .tabletop .tt-center {
+      flex: 1;
+      padding: 20px 30px;
+    }
+
+    .tabletop .tt-center h3 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #0A2540;
+      margin-bottom: 8px;
+    }
+
+    .tabletop .tt-center p {
+      font-size: 0.76rem;
+      color: #6B7280;
+      line-height: 1.5;
+    }
+
+    .tabletop .tt-right {
+      width: 200px;
+      padding: 20px 30px;
+      text-align: center;
+      flex-shrink: 0;
+      border-left: 1px solid #E5E7EB;
+    }
+
+    .tabletop .tt-right .url {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #0A2540;
+      font-family: 'Outfit', sans-serif;
+      margin-bottom: 4px;
+    }
+
+    .tabletop .tt-right .contact {
+      font-size: 0.65rem;
+      color: #6B7280;
+    }
+
+    .tabletop .tt-right .tm {
+      font-size: 0.5rem;
+      color: #D1D5DB;
+      margin-top: 12px;
+    }
+
+    @media print {
+      body { background: white; padding: 0; }
+      h1, .label { display: none; }
+      .rollup, .horizontal, .tabletop { box-shadow: none; border-radius: 0; page-break-after: always; }
+    }
+  </style>
+</head>
+<body>
+
+ <!-- ════════ TABLE-TOP CARD ════════ -->
+  <div class="banner-wrapper">
+    <div class="tabletop">
+      <div class="top-strip"></div>
+      <div class="bot-strip"></div>
+      <div class="tt-left">
+        <img src="../logo_og.png" alt="Logo">
+        <div>
+          <div class="brand-name">HANS OptiCore</div>
+          <div class="brand-tagline">Operational Excellence</div>
+        </div>
+      </div>
+      <div class="tt-center">
+        <h3>Transforming Business Operations</h3>
+        <p>End-to-end consulting in operations strategy, cost reduction, supply chain optimization, Lean & Six Sigma implementation, and financial performance improvement.</p>
+      </div>
+      <div class="tt-right">
+        <div class="url">hansopticore.com</div>
+        <div class="contact">info@hansopticore.com<br>+91 84317 97555</div>
+        <div class="tm">© HANS OptiCore™ LLP</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

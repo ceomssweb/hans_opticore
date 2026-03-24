@@ -14,7 +14,6 @@
       flex-direction: column;
       align-items: center;
       font-family: 'DM Sans', sans-serif;
-      padding: 40px;
       gap: 40px;
     }
 
@@ -158,17 +157,19 @@
       font-weight: 500;
     }
 
-    /* Watermark */
+    /* Watermark – centered logo background, 40% of page size */
     .lh-watermark {
       position: absolute;
-      right: 40px;
-      bottom: 120px;
-      opacity: 0.04;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.06;
+      pointer-events: none;
     }
 
     .lh-watermark img {
-      width: 260px;
-      height: 260px;
+      width: 450px;
+      height: 450px;
       object-fit: contain;
     }
 
@@ -231,7 +232,6 @@
   </style>
 </head>
 <body>
-  <h1>HANS OptiCore – Company Letterhead</h1>
 
   <div class="letterhead">
     <div class="lh-side-accent"></div>

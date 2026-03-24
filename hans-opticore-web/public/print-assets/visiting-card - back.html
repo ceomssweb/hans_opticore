@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HANS OptiCore - Visiting Card</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #E5E7EB;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: 'DM Sans', sans-serif;
+      padding: 40px;
+      gap: 60px;
+    }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      color: #4B5563;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    .card-container {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .label {
+      font-size: 0.85rem;
+      color: #9CA3AF;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    /* ======== VISITING CARD - FRONT ======== */
+    /* Standard business card: 3.5in x 2in at 300 DPI = 1050px x 600px */
+    .card {
+      width: 1050px;
+      height: 600px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      position: relative;
+    }
+
+    .card-front {
+      background: linear-gradient(135deg, #0A2540 0%, #0F3460 50%, #0D4F8B 100%);
+      display: flex;
+      align-items: center;
+      padding: 0;
+    }
+
+    .card-front .left-section {
+      flex: 1;
+      padding: 60px 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .card-front .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .card-front .logo-area img {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+    }
+
+    .card-front .logo-area .brand {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-front .logo-area .brand-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: #FFFFFF;
+      letter-spacing: -0.3px;
+      line-height: 1.1;
+    }
+
+    .card-front .logo-area .brand-tagline {
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .card-front .person-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #FFFFFF;
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .card-front .person-role {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #14B8A6;
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
+    }
+
+    .card-front .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .card-front .contact-row .icon {
+      width: 20px;
+      height: 20px;
+      background: rgba(13,148,136,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.55rem;
+      color: #14B8A6;
+      flex-shrink: 0;
+    }
+
+    .card-front .right-section {
+      width: 320px;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-front .accent-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(13,148,136,0.15) 0%, rgba(13,148,136,0.05) 100%);
+    }
+
+    .card-front .accent-circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 2px solid rgba(13,148,136,0.15);
+    }
+
+    .card-front .accent-circle.c1 {
+      width: 300px;
+      height: 300px;
+      top: -60px;
+      right: -80px;
+    }
+
+    .card-front .accent-circle.c2 {
+      width: 200px;
+      height: 200px;
+      bottom: -40px;
+      right: 40px;
+    }
+
+    .card-front .right-content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .card-front .right-content img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      opacity: 0.25;
+    }
+
+    /* ======== VISITING CARD - BACK ======== */
+    .card-back {
+      background: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-back::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #0A2540 0%, #0D9488 50%, #F97316 100%);
+    }
+
+    .card-back::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #F97316 0%, #0D9488 50%, #0A2540 100%);
+    }
+
+    .card-back .back-logo {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .card-back .back-logo img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+    }
+
+    .card-back .back-logo .brand {
+      text-align: left;
+    }
+
+    .card-back .back-logo .brand-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: #0A2540;
+      line-height: 1.1;
+    }
+
+    .card-back .back-logo .brand-tagline {
+      font-size: 0.7rem;
+      color: #0D9488;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .card-back .back-services {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .card-back .service-item {
+      font-size: 0.7rem;
+      color: #4B5563;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card-back .service-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #0D9488;
+    }
+
+    .card-back .back-url {
+      font-size: 0.8rem;
+      color: #0D9488;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .card-back .back-tm {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.55rem;
+      color: #9CA3AF;
+    }
+
+    @media print {
+      body { background: white; padding: 0; }
+      .label, h1 { display: none; }
+      .card { box-shadow: none; border-radius: 0; page-break-after: always; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card-container">
+    
+    <!-- BACK -->
+    <div>
+      <div class="card card-back">
+        <div class="back-logo">
+          <img src="../logo_og.png" alt="Logo">
+          <div class="brand">
+            <span class="brand-name">HANS OptiCore</span>
+            <span class="brand-tagline">Operational Excellence</span>
+          </div>
+        </div>
+        <div class="back-services">
+          <div class="service-item"><span class="service-dot"></span>Operations Consulting</div>
+          <div class="service-item"><span class="service-dot"></span>Cost Reduction</div>
+          <div class="service-item"><span class="service-dot"></span>Supply Chain Optimization</div>
+          <div class="service-item"><span class="service-dot"></span>Lean & Six Sigma</div>
+          <div class="service-item"><span class="service-dot"></span>Financial Performance</div>
+        </div>
+        <div class="back-url">www.hansopticore.com</div>
+        <div class="back-tm">© 2026 HANS OptiCore™ LLP. All rights reserved.</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

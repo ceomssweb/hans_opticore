@@ -23,15 +23,20 @@
         <li><a routerLink="/services" routerLinkActive="active" (click)="closeMobileMenu()">Services</a></li>
         <li><a routerLink="/contact" routerLinkActive="active" (click)="closeMobileMenu()">Contact</a></li>
       </ul>
-      <a routerLink="/contact" class="nav-cta-mobile" (click)="closeMobileMenu()">
-        <span>Free Consultation</span>
-        <i class="fas fa-arrow-right"></i>
-      </a>
+      
+      <a routerLink="/contact" fragment="get-in-touch" class="nav-cta-mobile" (click)="closeMobileMenu()">
+        <span>Start Optimizing Today</span>
+        @if (!isContactPage()) {<i class="fas fa-arrow-right"></i>
+      }
+    </a>
+      
     </div>
 
-    <a routerLink="/contact" class="nav-cta" (click)="closeMobileMenu()">
-      <span>Free Consultation</span>
-      <i class="fas fa-arrow-right"></i>
-    </a>
+    
+    <a routerLink="/contact" fragment="get-in-touch" class="nav-cta" (click)="closeMobileMenu()">
+      <span>Start Optimizing Today</span>
+      @if (!isContactPage()) {<i class="fas fa-arrow-right"></i>
+    }</a>
+    
   </div>
 </nav>

@@ -28,6 +28,8 @@ except ImportError:
     print("ERROR: Pillow not installed. Run: pip install Pillow")
     sys.exit(1)
 
+from PIL import ImageChops
+
 
 # ── Paths ──────────────────────────────────────────────
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -66,6 +68,8 @@ CAPTURE_MAP = [
     ("light/name-board-light.html",    "name-board-light-compact",   1440, 480),
     ("light/name-board-light.html",    "name-board-light-vertical",  480,  1280),
     ("light/name-board-light.html",    "name-board-light-glow",      2400, 720),
+    # Name board – OG (original)
+    ("nameboard-og/name-board.html",   "nameboard-og",               2500, 5000),
 ]
 
 # For full-page screenshots we use conservative page sizes
@@ -78,6 +82,7 @@ PAGE_SIZES = {
     "light/banner-light.html":         (1400, 3000),
     "name-board.html":                 (2500, 5000),
     "light/name-board-light.html":     (2500, 4000),
+    "nameboard-og/name-board.html":     (2500, 5000),
 }
 
 DPI = 300
@@ -141,12 +146,59 @@ def html_to_png(html_file: str, output_name: str, size: tuple) -> Path:
         f'src="file:///{logo_wht_abs.as_posix()}"'
     )
 
+    # Replace relative font paths with absolute file:// URLs
+    kannada_regular = PRINT_ASSETS_DIR / "NotoSansKannada-Regular.ttf"
+    kannada_bold = PRINT_ASSETS_DIR / "NotoSansKannada-Bold.ttf"
+    for old_font, abs_font in [
+        ("url('NotoSansKannada-Regular.ttf')", f"url('file:///{kannada_regular.as_posix()}')"),
+        ("url('NotoSansKannada-Bold.ttf')",    f"url('file:///{kannada_bold.as_posix()}')"),
+        ("url('../NotoSansKannada-Regular.ttf')", f"url('file:///{kannada_regular.as_posix()}')"),
+        ("url('../NotoSansKannada-Bold.ttf')",    f"url('file:///{kannada_bold.as_posix()}')"),
+    ]:
+        html_content = html_content.replace(old_font, abs_font)
+
     hti.screenshot(html_str=html_content, save_as=png_name)
 
     png_path = TEMP_DIR / png_name
     if png_path.exists():
         return png_path
     return None
+
+
+def autocrop_image(img_path: Path) -> Path:
+    """Auto-crop an image by trimming the background color (detected from corners)."""
+    img = Image.open(img_path).convert("RGB")
+
+    # Detect background color from top-left corner pixel
+    bg_color = img.getpixel((0, 0))
+
+    # Create a solid image of the background color, same size
+    bg = Image.new("RGB", img.size, bg_color)
+
+    # Difference between original and background
+    diff = ImageChops.difference(img, bg)
+
+    # Add a small tolerance for anti-aliased edges / compression artifacts
+    # Threshold: treat pixels within ±8 of bg as background
+    threshold = 10
+    diff = diff.point(lambda x: 0 if x < threshold else 255)
+
+    # Get bounding box of non-background content
+    bbox = diff.getbbox()
+    if bbox:
+        # Add a small padding (4px) to avoid clipping edges
+        pad = 4
+        x1 = max(0, bbox[0] - pad)
+        y1 = max(0, bbox[1] - pad)
+        x2 = min(img.width, bbox[2] + pad)
+        y2 = min(img.height, bbox[3] + pad)
+        cropped = img.crop((x1, y1, x2, y2))
+        cropped.save(str(img_path))
+        print(f"   ✂ Cropped: {img.width}×{img.height} → {cropped.width}×{cropped.height}")
+    else:
+        print(f"   ⚠ No content detected for cropping, keeping original")
+
+    return img_path
 
 
 def png_to_tiff(png_path: Path, output_name: str):
@@ -179,8 +231,11 @@ def convert_full_page(html_file: str):
 
     png_path = html_to_png(html_file, name, size)
     if png_path:
+        # Auto-crop to remove background padding
+        autocrop_image(png_path)
+
         tiff_path = png_to_tiff(png_path, name)
-        # Also copy PNG to output directory
+        # Also copy cropped PNG to output directory
         png_output = TIFF_OUTPUT_DIR / f"{name}.png"
         shutil.copy2(str(png_path), str(png_output))
         print(f"   ✅ → {tiff_path.name} + {png_output.name}")

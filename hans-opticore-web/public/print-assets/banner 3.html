@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HANS OptiCore - Banner Designs</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #E5E7EB;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: 'DM Sans', sans-serif;
+      padding: 40px;
+      gap: 60px;
+    }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      color: #4B5563;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    .label {
+      font-size: 0.85rem;
+      color: #9CA3AF;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .size-note {
+      font-size: 0.7rem;
+      color: #9CA3AF;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    /* ======== ROLL-UP BANNER (2ft x 6ft ~= 576px x 1728px at 96 DPI) ======== */
+    .banner-rollup {
+      width: 500px;
+      height: 1500px;
+      background: linear-gradient(180deg, #0A2540 0%, #0F3460 40%, #0D4F8B 70%, #0A2540 100%);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 40px;
+    }
+
+    .banner-rollup .bg-circles {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .banner-rollup .bg-circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 2px solid rgba(13,148,136,0.08);
+    }
+
+    .banner-rollup .bg-circle.bc1 { width: 500px; height: 500px; top: -100px; right: -150px; }
+    .banner-rollup .bg-circle.bc2 { width: 350px; height: 350px; bottom: 200px; left: -120px; }
+    .banner-rollup .bg-circle.bc3 { width: 250px; height: 250px; top: 400px; right: -80px; border-color: rgba(249,115,22,0.06); }
+
+    .banner-rollup .grid-overlay {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+
+    .banner-rollup .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      height: 100%;
+    }
+
+    .banner-rollup .top-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+
+    .banner-rollup .top-logo img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+    }
+
+    .banner-rollup .top-logo .brand-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: #FFFFFF;
+      line-height: 1.1;
+    }
+
+    .banner-rollup .top-logo .brand-tagline {
+      font-size: 0.6rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .banner-rollup .accent-line {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #0D9488, #14B8A6);
+      border-radius: 2px;
+      margin-bottom: 40px;
+    }
+
+    .banner-rollup .headline {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 2.2rem;
+      color: #FFFFFF;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .banner-rollup .headline .highlight {
+      color: #14B8A6;
+    }
+
+    .banner-rollup .sub-headline {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+      margin-bottom: 48px;
+      max-width: 380px;
+    }
+
+    .banner-rollup .services-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: auto;
+    }
+
+    .banner-rollup .service-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 20px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .banner-rollup .service-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(13,148,136,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #14B8A6;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .banner-rollup .service-text {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      text-align: left;
+    }
+
+    .banner-rollup .cta-area {
+      margin-top: 48px;
+      text-align: center;
+    }
+
+    .banner-rollup .cta-btn {
+      display: inline-block;
+      padding: 14px 36px;
+      background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 50px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 30px rgba(249,115,22,0.3);
+    }
+
+    .banner-rollup .contact-line {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 4px;
+    }
+
+    .banner-rollup .contact-line strong {
+      color: #14B8A6;
+    }
+
+    .banner-rollup .bottom-strip {
+      width: calc(100% + 80px);
+      margin: 0 -40px;
+      padding: 16px;
+      background: rgba(0,0,0,0.3);
+      text-align: center;
+      margin-top: 32px;
+    }
+
+    .banner-rollup .bottom-strip .url {
+      font-size: 1.1rem;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: 2px;
+    }
+
+    .banner-rollup .bottom-strip .tm {
+      font-size: 0.55rem;
+      color: rgba(255,255,255,0.3);
+      margin-top: 4px;
+    }
+
+    /* ======== HORIZONTAL BANNER (for web/print: 1200 x 400) ======== */
+    .banner-horizontal {
+      width: 1200px;
+      height: 400px;
+      background: linear-gradient(135deg, #0A2540 0%, #0F3460 50%, #0D4F8B 100%);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .banner-horizontal .bg-circles {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .banner-horizontal .bg-circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 2px solid rgba(13,148,136,0.06);
+    }
+
+    .banner-horizontal .bg-circle.hc1 { width: 400px; height: 400px; top: -120px; right: -50px; }
+    .banner-horizontal .bg-circle.hc2 { width: 250px; height: 250px; bottom: -80px; left: 30%; }
+
+    .banner-horizontal .left-content {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      padding: 40px 60px;
+    }
+
+    .banner-horizontal .h-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .banner-horizontal .h-logo img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+    }
+
+    .banner-horizontal .h-logo .brand-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: #FFFFFF;
+    }
+
+    .banner-horizontal .h-headline {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 2.2rem;
+      color: #FFFFFF;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .banner-horizontal .h-headline .highlight {
+      color: #14B8A6;
+    }
+
+    .banner-horizontal .h-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+      max-width: 460px;
+    }
+
+    .banner-horizontal .right-cta {
+      position: relative;
+      z-index: 1;
+      width: 360px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      background: rgba(0,0,0,0.15);
+    }
+
+    .banner-horizontal .right-cta .cta-btn {
+      display: inline-block;
+      padding: 16px 40px;
+      background: linear-gradient(135deg, #F97316, #EA580C);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 30px rgba(249,115,22,0.3);
+    }
+
+    .banner-horizontal .right-cta .contact {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    .banner-horizontal .right-cta .contact strong {
+      color: #14B8A6;
+    }
+
+    .banner-horizontal .bottom-accent {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #0D9488 0%, #14B8A6 30%, #F97316 70%, #EA580C 100%);
+    }
+
+    /* ======== TABLE-TOP BANNER / NAME CARD (6in x 2in) ======== */
+    .banner-table {
+      width: 900px;
+      height: 280px;
+      background: #FFFFFF;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .banner-table .side-bar {
+      width: 8px;
+      height: 100%;
+      background: linear-gradient(180deg, #0A2540 0%, #0D9488 50%, #F97316 100%);
+      flex-shrink: 0;
+    }
+
+    .banner-table .table-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 30px 40px;
+    }
+
+    .banner-table .table-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .banner-table .table-left img {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+    }
+
+    .banner-table .table-brand .brand-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: #0A2540;
+      line-height: 1.1;
+    }
+
+    .banner-table .table-brand .brand-tagline {
+      font-size: 0.7rem;
+      color: #0D9488;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .banner-table .table-services {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 0 32px;
+      border-left: 2px solid #E5E7EB;
+      border-right: 2px solid #E5E7EB;
+    }
+
+    .banner-table .table-services .svc {
+      font-size: 0.75rem;
+      color: #4B5563;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .banner-table .table-services .dot {
+      width: 5px;
+      height: 5px;
+      background: #0D9488;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .banner-table .table-contact {
+      text-align: right;
+      font-size: 0.75rem;
+      color: #4B5563;
+      line-height: 1.8;
+    }
+
+    .banner-table .table-contact .url {
+      font-size: 0.85rem;
+      color: #0D9488;
+      font-weight: 700;
+    }
+
+    .banner-table .table-contact .phone {
+      font-weight: 600;
+      color: #0A2540;
+    }
+
+    .banner-table .bottom-accent {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #0A2540, #0D9488, #F97316);
+    }
+
+    @media print {
+      body { background: white; padding: 0; gap: 0; }
+      h1, .label, .size-note { display: none; }
+      .banner-rollup, .banner-horizontal, .banner-table {
+        box-shadow: none;
+        page-break-after: always;
+      }
+    }
+  </style>
+</head>
+<body>
+ 
+ 
+  <!-- TABLE-TOP / CONFERENCE BANNER -->
+  <div>
+    <div class="banner-table">
+      <div class="side-bar"></div>
+      <div class="table-content">
+        <div class="table-left">
+          <img src="../logo_og.png" alt="Logo">
+          <div class="table-brand">
+            <div class="brand-name">HANS OptiCore</div>
+            <div class="brand-tagline">Operational Excellence</div>
+          </div>
+        </div>
+        <div class="table-services">
+          <div class="svc"><span class="dot"></span>Operations Consulting</div>
+          <div class="svc"><span class="dot"></span>Cost Reduction</div>
+          <div class="svc"><span class="dot"></span>Supply Chain Optimization</div>
+          <div class="svc"><span class="dot"></span>Lean & Six Sigma</div>
+          <div class="svc"><span class="dot"></span>Financial Performance</div>
+        </div>
+        <div class="table-contact">
+          <div class="url">www.hansopticore.com</div>
+          <div class="phone">+91 84317 97555</div>
+          <div>info@hansopticore.com</div>
+          <div>Bengaluru, India</div>
+        </div>
+      </div>
+      <div class="bottom-accent"></div>
+    </div>
+  </div>
+</body>
+</html>
