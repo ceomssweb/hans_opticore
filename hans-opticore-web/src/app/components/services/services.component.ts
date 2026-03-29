@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, PLATFORM_ID, Inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { isPlatformBrowser, ViewportScroller } from '@angular/common';
 
 @Component({
@@ -14,14 +14,26 @@ export class ServicesComponent implements OnInit, AfterViewInit {
 
   constructor(
     @Inject(PLATFORM_ID) platformId: Object,
-    private viewportScroller: ViewportScroller
+    private viewportScroller: ViewportScroller,
+    private route: ActivatedRoute
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
   ngOnInit() {
     if (this.isBrowser) {
-      this.viewportScroller.scrollToPosition([0, 0]);
+      this.route.fragment.subscribe(fragment => {
+        if (fragment) {
+          setTimeout(() => {
+            const el = document.getElementById(fragment);
+            if (el) {
+              el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }, 300);
+        } else {
+          this.viewportScroller.scrollToPosition([0, 0]);
+        }
+      });
     }
   }
 

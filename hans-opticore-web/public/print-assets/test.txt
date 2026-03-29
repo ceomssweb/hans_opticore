@@ -1,0 +1,1077 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HANS OptiCore - Building Name Board</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;family=Outfit:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'Noto Sans Kannada';
+      src: url('NotoSansKannada-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Noto Sans Kannada';
+      src: url('NotoSansKannada-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #1a1a2e;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: 'DM Sans', sans-serif;
+      padding: 40px;
+      gap: 60px;
+    }
+
+    h1.page-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      color: #9CA3AF;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    .label {
+      font-size: 0.85rem;
+      color: #9CA3AF;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .size-note {
+      font-size: 0.7rem;
+      color: #6B7280;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       DESIGN 1 — MAIN BUILDING NAME BOARD (8ft x 3ft)
+       Large-scale outdoor sign for building top/facade
+       Scale: 1920 x 720 px (at 96 DPI preview)
+       ══════════════════════════════════════════════════════ */
+    .name-board-main {
+      width: 1920px;
+      height: 720px;
+      background: linear-gradient(135deg, #050d1a 0%, #0A2540 30%, #0F3460 65%, #0A2540 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+      border: 3px solid rgba(13,148,136,0.15);
+    }
+
+    /* Animated circuit-board grid background */
+    .name-board-main .grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(13,148,136,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(13,148,136,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* Futuristic diagonal scan lines */
+    .name-board-main .scan-lines {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 80px,
+        rgba(13,148,136,0.015) 80px,
+        rgba(13,148,136,0.015) 81px
+      );
+    }
+
+    /* Geometric accent circles */
+    .name-board-main .geo-circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 1.5px solid rgba(13,148,136,0.08);
+    }
+    .name-board-main .geo-circle.gc1 { width: 600px; height: 600px; top: -200px; right: -100px; }
+    .name-board-main .geo-circle.gc2 { width: 400px; height: 400px; bottom: -150px; left: -100px; border-color: rgba(249,115,22,0.06); }
+    .name-board-main .geo-circle.gc3 { width: 200px; height: 200px; top: 80px; left: 120px; border-color: rgba(13,148,136,0.06); }
+    .name-board-main .geo-circle.gc4 { width: 350px; height: 350px; bottom: -100px; right: 300px; border-color: rgba(255,255,255,0.02); }
+
+    /* Glowing orbs */
+    .name-board-main .glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+    }
+    .name-board-main .glow-orb.go1 { width: 300px; height: 300px; top: -80px; left: 25%; background: rgba(13,148,136,0.08); }
+    .name-board-main .glow-orb.go2 { width: 250px; height: 250px; bottom: -60px; right: 20%; background: rgba(249,115,22,0.06); }
+    .name-board-main .glow-orb.go3 { width: 200px; height: 200px; top: 50%; left: 50%; transform: translate(-50%,-50%); background: rgba(13,148,136,0.05); }
+
+    /* Left accent bar */
+    .name-board-main .accent-bar-left {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 8px;
+      background: linear-gradient(180deg, #0D9488, #14B8A6 40%, #F97316 80%, #EA580C);
+    }
+
+    /* Right accent bar */
+    .name-board-main .accent-bar-right {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 8px;
+      background: linear-gradient(180deg, #EA580C, #F97316 40%, #14B8A6 80%, #0D9488);
+    }
+
+    /* Top accent line */
+    .name-board-main .accent-line-top {
+      position: absolute;
+      top: 0;
+      left: 8px;
+      right: 8px;
+      height: 4px;
+      background: linear-gradient(90deg, #0D9488 0%, #14B8A6 25%, transparent 50%, #F97316 75%, #EA580C 100%);
+    }
+
+    /* Bottom accent line */
+    .name-board-main .accent-line-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 8px;
+      right: 8px;
+      height: 4px;
+      background: linear-gradient(90deg, #EA580C 0%, #F97316 25%, transparent 50%, #14B8A6 75%, #0D9488 100%);
+    }
+
+    /* Main content area */
+    .name-board-main .board-content {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      padding: 0 80px;
+    }
+
+    /* Logo section */
+    .name-board-main .logo-section {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    .name-board-main .logo-container {
+      width: 300px;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* Hexagonal glow behind logo */
+    .name-board-main .logo-hex-glow {
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(ellipse, rgba(13,148,136,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .name-board-main .logo-container img {
+      width: 180px;
+      height: 180px;
+      object-fit: contain;
+      position: relative;
+      z-index: 2;
+      filter: drop-shadow(0 0 30px rgba(13,148,136,0.3));
+    }
+
+    /* Separator line */
+    .name-board-main .separator {
+      width: 3px;
+      height: 320px;
+      background: linear-gradient(180deg, transparent 0%, rgba(13,148,136,0.4) 30%, rgba(13,148,136,0.6) 50%, rgba(13,148,136,0.4) 70%, transparent 100%);
+      flex-shrink: 0;
+      border-radius: 2px;
+    }
+
+    /* Text section */
+    .name-board-main .text-section {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .name-board-main .company-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 7rem;
+      color: #FFFFFF;
+      letter-spacing: 6px;
+      line-height: 1;
+      text-transform: uppercase;
+      text-shadow: 0 0 60px rgba(13,148,136,0.2), 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .name-board-main .company-name .hans {
+      color: #FFFFFF;
+    }
+
+    .name-board-main .company-name .opticore {
+      color: #14B8A6;
+      text-shadow: 0 0 40px rgba(20,184,166,0.3), 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .name-board-main .tagline-divider {
+      width: 120px;
+      height: 3px;
+      background: linear-gradient(90deg, #F97316 0%, #14B8A6 100%);
+      border-radius: 2px;
+    }
+
+    .name-board-main .tagline {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 500;
+      font-size: 2rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 12px;
+      text-transform: uppercase;
+    }
+
+    .name-board-main .sub-info {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-top: 8px;
+    }
+
+    .name-board-main .sub-info .info-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 1px;
+    }
+
+    .name-board-main .sub-info .info-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #14B8A6;
+    }
+
+    .name-board-main .sub-info .info-item .icon-text {
+      color: rgba(255,255,255,0.35);
+      font-size: 0.95rem;
+    }
+
+    /* Corner accents */
+    .name-board-main .corner-accent {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      z-index: 5;
+    }
+    .name-board-main .corner-accent.tl { top: 20px; left: 20px; border-top: 2px solid rgba(13,148,136,0.3); border-left: 2px solid rgba(13,148,136,0.3); }
+    .name-board-main .corner-accent.tr { top: 20px; right: 20px; border-top: 2px solid rgba(13,148,136,0.3); border-right: 2px solid rgba(13,148,136,0.3); }
+    .name-board-main .corner-accent.bl { bottom: 20px; left: 20px; border-bottom: 2px solid rgba(249,115,22,0.2); border-left: 2px solid rgba(249,115,22,0.2); }
+    .name-board-main .corner-accent.br { bottom: 20px; right: 20px; border-bottom: 2px solid rgba(249,115,22,0.2); border-right: 2px solid rgba(249,115,22,0.2); }
+
+
+    /* ══════════════════════════════════════════════════════
+       DESIGN 2 — COMPACT BUILDING SIGN (6ft x 2ft)
+       Sleek horizontal sign for entrance/reception
+       Scale: 1440 x 480 px
+       ══════════════════════════════════════════════════════ */
+    .name-board-compact {
+      width: 1440px;
+      height: 480px;
+      background: linear-gradient(135deg, #050d1a 0%, #0A2540 40%, #0F3460 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    .name-board-compact .grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(13,148,136,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(13,148,136,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .name-board-compact .geo-circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 1.5px solid rgba(13,148,136,0.06);
+    }
+    .name-board-compact .geo-circle.gc1 { width: 500px; height: 500px; top: -200px; right: -100px; }
+    .name-board-compact .geo-circle.gc2 { width: 300px; height: 300px; bottom: -120px; left: 200px; border-color: rgba(249,115,22,0.04); }
+
+    .name-board-compact .glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+    }
+    .name-board-compact .glow-orb.go1 { width: 200px; height: 200px; top: -50px; left: 30%; background: rgba(13,148,136,0.08); }
+    .name-board-compact .glow-orb.go2 { width: 180px; height: 180px; bottom: -40px; right: 15%; background: rgba(249,115,22,0.05); }
+
+    /* Top gradient strip */
+    .name-board-compact .top-strip {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #0D9488 0%, #14B8A6 30%, #F97316 70%, #EA580C 100%);
+    }
+
+    /* Bottom gradient strip */
+    .name-board-compact .bottom-strip {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #EA580C 0%, #F97316 30%, #14B8A6 70%, #0D9488 100%);
+    }
+
+    .name-board-compact .board-content {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: 0 70px;
+      gap: 40px;
+    }
+
+    .name-board-compact .logo-container {
+      flex-shrink: 0;
+      width: 140px;
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .name-board-compact .logo-container .logo-glow {
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(ellipse, rgba(13,148,136,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .name-board-compact .logo-container img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      position: relative;
+      z-index: 2;
+      filter: drop-shadow(0 0 20px rgba(13,148,136,0.25));
+    }
+
+    .name-board-compact .separator {
+      width: 2px;
+      height: 200px;
+      background: linear-gradient(180deg, transparent, rgba(13,148,136,0.4) 30%, rgba(13,148,136,0.5) 50%, rgba(13,148,136,0.4) 70%, transparent);
+      flex-shrink: 0;
+    }
+
+    .name-board-compact .text-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .name-board-compact .company-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 4.5rem;
+      color: #FFFFFF;
+      letter-spacing: 5px;
+      line-height: 1;
+      text-transform: uppercase;
+      text-shadow: 0 0 40px rgba(13,148,136,0.15);
+    }
+
+    .name-board-compact .company-name .opticore {
+      color: #14B8A6;
+    }
+
+    .name-board-compact .tagline-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .name-board-compact .tagline-bar {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, #F97316, #14B8A6);
+      flex-shrink: 0;
+    }
+
+    .name-board-compact .tagline {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 500;
+      font-size: 1.3rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 8px;
+      text-transform: uppercase;
+    }
+
+    .name-board-compact .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-top: 4px;
+    }
+
+    .name-board-compact .contact-item {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.5px;
+    }
+
+    .name-board-compact .contact-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(13,148,136,0.5);
+      flex-shrink: 0;
+    }
+
+    /* Corner frame accents */
+    .name-board-compact .corner {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      z-index: 5;
+    }
+    .name-board-compact .corner.tl { top: 15px; left: 15px; border-top: 2px solid rgba(13,148,136,0.25); border-left: 2px solid rgba(13,148,136,0.25); }
+    .name-board-compact .corner.tr { top: 15px; right: 15px; border-top: 2px solid rgba(13,148,136,0.25); border-right: 2px solid rgba(13,148,136,0.25); }
+    .name-board-compact .corner.bl { bottom: 15px; left: 15px; border-bottom: 2px solid rgba(249,115,22,0.15); border-left: 2px solid rgba(249,115,22,0.15); }
+    .name-board-compact .corner.br { bottom: 15px; right: 15px; border-bottom: 2px solid rgba(249,115,22,0.15); border-right: 2px solid rgba(249,115,22,0.15); }
+
+
+    /* ══════════════════════════════════════════════════════
+       DESIGN 3 — VERTICAL TOWER SIGN (3ft x 8ft)
+       For building pillar or vertical facade mount
+       Scale: 480 x 1280 px
+       ══════════════════════════════════════════════════════ */
+    .name-board-vertical {
+      width: 480px;
+      height: 1280px;
+      background: linear-gradient(180deg, #050d1a 0%, #0A2540 25%, #0F3460 50%, #0A2540 75%, #050d1a 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .name-board-vertical .grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(13,148,136,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(13,148,136,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .name-board-vertical .geo-circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 1.5px solid rgba(13,148,136,0.06);
+    }
+    .name-board-vertical .geo-circle.gc1 { width: 400px; height: 400px; top: 100px; right: -150px; }
+    .name-board-vertical .geo-circle.gc2 { width: 300px; height: 300px; bottom: 200px; left: -100px; border-color: rgba(249,115,22,0.04); }
+
+    .name-board-vertical .glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+    }
+    .name-board-vertical .glow-orb.go1 { width: 200px; height: 200px; top: 15%; left: 0; background: rgba(13,148,136,0.08); }
+    .name-board-vertical .glow-orb.go2 { width: 160px; height: 160px; bottom: 20%; right: 0; background: rgba(249,115,22,0.06); }
+
+    /* Side gradient strips */
+    .name-board-vertical .side-strip-left {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 5px;
+      background: linear-gradient(180deg, #0D9488 0%, #14B8A6 30%, transparent 50%, #F97316 70%, #EA580C 100%);
+    }
+
+    .name-board-vertical .side-strip-right {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 5px;
+      background: linear-gradient(180deg, #EA580C 0%, #F97316 30%, transparent 50%, #14B8A6 70%, #0D9488 100%);
+    }
+
+    .name-board-vertical .board-content {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 30px;
+      padding: 60px 40px;
+    }
+
+    .name-board-vertical .logo-container {
+      width: 160px;
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .name-board-vertical .logo-container .logo-glow {
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(ellipse, rgba(13,148,136,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .name-board-vertical .logo-container img {
+      width: 140px;
+      height: 140px;
+      object-fit: contain;
+      position: relative;
+      z-index: 2;
+      filter: drop-shadow(0 0 25px rgba(13,148,136,0.3));
+    }
+
+    .name-board-vertical .h-divider {
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #14B8A6, transparent);
+      border-radius: 2px;
+    }
+
+    .name-board-vertical .company-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 4rem;
+      color: #FFFFFF;
+      letter-spacing: 4px;
+      line-height: 1.1;
+      text-transform: uppercase;
+      text-shadow: 0 0 40px rgba(13,148,136,0.15);
+    }
+
+    .name-board-vertical .company-name .opticore {
+      color: #14B8A6;
+      display: block;
+    }
+
+    .name-board-vertical .tagline {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 8px;
+      text-transform: uppercase;
+    }
+
+    .name-board-vertical .v-divider-long {
+      width: 2px;
+      height: 100px;
+      background: linear-gradient(180deg, transparent, rgba(13,148,136,0.3), transparent);
+    }
+
+    .name-board-vertical .services-column {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .name-board-vertical .service-pill {
+      padding: 10px 28px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(13,148,136,0.1);
+      border-radius: 30px;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .name-board-vertical .contact-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .name-board-vertical .contact-text {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 1px;
+    }
+
+    .name-board-vertical .website-text {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 2px;
+    }
+
+    .name-board-vertical .tm-text {
+      font-size: 0.6rem;
+      color: rgba(255,255,255,0.15);
+      letter-spacing: 1px;
+      margin-top: 10px;
+    }
+
+    /* Corner accents */
+    .name-board-vertical .corner {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      z-index: 5;
+    }
+    .name-board-vertical .corner.tl { top: 15px; left: 15px; border-top: 2px solid rgba(13,148,136,0.2); border-left: 2px solid rgba(13,148,136,0.2); }
+    .name-board-vertical .corner.tr { top: 15px; right: 15px; border-top: 2px solid rgba(13,148,136,0.2); border-right: 2px solid rgba(13,148,136,0.2); }
+    .name-board-vertical .corner.bl { bottom: 15px; left: 15px; border-bottom: 2px solid rgba(249,115,22,0.15); border-left: 2px solid rgba(249,115,22,0.15); }
+    .name-board-vertical .corner.br { bottom: 15px; right: 15px; border-bottom: 2px solid rgba(249,115,22,0.15); border-right: 2px solid rgba(249,115,22,0.15); }
+
+
+    /* ══════════════════════════════════════════════════════
+       DESIGN 4 — ILLUMINATED GLOW SIGN (10ft x 3ft)
+       Premium LED-style backlit sign
+       Scale: 2400 x 720 px
+       ══════════════════════════════════════════════════════ */
+    .name-board-glow {
+      width: 2400px;
+      height: 720px;
+      background: #020810;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 30px 100px rgba(0,0,0,0.6), 0 0 80px rgba(13,148,136,0.08);
+      border: 2px solid rgba(13,148,136,0.1);
+    }
+
+    .name-board-glow .grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(13,148,136,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(13,148,136,0.02) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+
+    /* Large center glow */
+    .name-board-glow .center-glow {
+      position: absolute;
+      width: 1200px;
+      height: 400px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(ellipse, rgba(13,148,136,0.08) 0%, rgba(13,148,136,0.03) 40%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .name-board-glow .glow-ring {
+      position: absolute;
+      border-radius: 50%;
+    }
+    .name-board-glow .glow-ring.gr1 {
+      width: 600px; height: 600px; top: -200px; right: 100px;
+      border: 1px solid rgba(13,148,136,0.06);
+      box-shadow: inset 0 0 80px rgba(13,148,136,0.02);
+    }
+    .name-board-glow .glow-ring.gr2 {
+      width: 400px; height: 400px; bottom: -150px; left: 200px;
+      border: 1px solid rgba(249,115,22,0.04);
+    }
+
+    /* Horizontal beam lines */
+    .name-board-glow .beam-line {
+      position: absolute;
+      height: 1px;
+      left: 0;
+      right: 0;
+    }
+    .name-board-glow .beam-line.bl1 { top: 25%; background: linear-gradient(90deg, transparent 10%, rgba(13,148,136,0.06) 50%, transparent 90%); }
+    .name-board-glow .beam-line.bl2 { top: 75%; background: linear-gradient(90deg, transparent 10%, rgba(249,115,22,0.04) 50%, transparent 90%); }
+
+    /* Top & bottom glow strips */
+    .name-board-glow .glow-strip-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent 5%, #0D9488 20%, #14B8A6 35%, transparent 50%, #F97316 65%, #EA580C 80%, transparent 95%);
+      box-shadow: 0 0 20px rgba(13,148,136,0.3), 0 0 60px rgba(13,148,136,0.1);
+    }
+
+    .name-board-glow .glow-strip-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent 5%, #EA580C 20%, #F97316 35%, transparent 50%, #14B8A6 65%, #0D9488 80%, transparent 95%);
+      box-shadow: 0 0 20px rgba(249,115,22,0.3), 0 0 60px rgba(249,115,22,0.1);
+    }
+
+    .name-board-glow .board-content {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+    }
+
+    .name-board-glow .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .name-board-glow .logo-row img {
+      width: 140px;
+      height: 140px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 40px rgba(13,148,136,0.4)) drop-shadow(0 0 80px rgba(13,148,136,0.15));
+    }
+
+    .name-board-glow .name-block {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .name-board-glow .company-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 8rem;
+      color: #FFFFFF;
+      letter-spacing: 10px;
+      line-height: 1;
+      text-transform: uppercase;
+      text-shadow:
+        0 0 20px rgba(255,255,255,0.1),
+        0 0 60px rgba(13,148,136,0.2),
+        0 0 120px rgba(13,148,136,0.1);
+    }
+
+    .name-board-glow .company-name .opticore {
+      color: #14B8A6;
+      text-shadow:
+        0 0 20px rgba(20,184,166,0.4),
+        0 0 60px rgba(20,184,166,0.2),
+        0 0 120px rgba(20,184,166,0.1);
+    }
+
+    .name-board-glow .name-block .tagline-bar {
+      width: 200px;
+      height: 2px;
+      background: linear-gradient(90deg, #14B8A6, #F97316);
+      border-radius: 1px;
+      box-shadow: 0 0 10px rgba(13,148,136,0.3);
+    }
+
+    .name-board-glow .name-block .tagline {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 500;
+      font-size: 1.6rem;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 14px;
+      text-transform: uppercase;
+    }
+
+    .name-board-glow .info-row {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-top: 10px;
+    }
+
+    .name-board-glow .info-row .info-text {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 2px;
+    }
+
+    .name-board-glow .info-row .info-sep {
+      width: 30px;
+      height: 1px;
+      background: rgba(13,148,136,0.3);
+    }
+
+    /* ══════════════════════════════════════════════════════
+       DESIGN 5 — LIGHT THEME BOARD (for daytime / indoor)
+       8ft x 3ft — White background
+       ══════════════════════════════════════════════════════ */
+    .name-board-light {
+      width: 1920px;
+      height: 720px;
+      background: #FFFFFF;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+      border: 1px solid #E5E7EB;
+    }
+
+    .name-board-light .grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(10,37,64,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(10,37,64,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .name-board-light .geo-circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 1.5px solid rgba(10,37,64,0.04);
+    }
+    .name-board-light .geo-circle.gc1 { width: 500px; height: 500px; top: -150px; right: -50px; }
+    .name-board-light .geo-circle.gc2 { width: 350px; height: 350px; bottom: -100px; left: -50px; border-color: rgba(13,148,136,0.06); }
+
+    .name-board-light .glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+    }
+    .name-board-light .glow-orb.go1 { width: 300px; height: 300px; top: -80px; left: 25%; background: rgba(13,148,136,0.05); }
+    .name-board-light .glow-orb.go2 { width: 250px; height: 250px; bottom: -60px; right: 20%; background: rgba(249,115,22,0.04); }
+
+    /* Top accent line */
+    .name-board-light .top-accent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #0A2540 0%, #0D9488 25%, #14B8A6 50%, #F97316 75%, #EA580C 100%);
+    }
+
+    /* Bottom accent line */
+    .name-board-light .bottom-accent {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #EA580C 0%, #F97316 25%, #14B8A6 50%, #0D9488 75%, #0A2540 100%);
+    }
+
+    .name-board-light .board-content {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      padding: 0 80px;
+    }
+
+    .name-board-light .logo-container {
+      flex-shrink: 0;
+      width: 300px;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .name-board-light .logo-container .logo-glow {
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(ellipse, rgba(13,148,136,0.06) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .name-board-light .logo-container img {
+      width: 100vh;
+      object-fit: contain;
+      position: relative;
+      z-index: 2;
+    }
+
+    .name-board-light .separator {
+      width: 3px;
+      height: 320px;
+      background: linear-gradient(180deg, transparent 0%, rgba(10,37,64,0.1) 30%, rgba(13,148,136,0.3) 50%, rgba(10,37,64,0.1) 70%, transparent 100%);
+      flex-shrink: 0;
+      border-radius: 2px;
+    }
+
+    .name-board-light .text-section {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .name-board-light .local-name {
+      font-family: 'Noto Sans Kannada', 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 6rem;
+      color: #0A2540;
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+
+    .name-board-light .company-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 6rem;
+      color: #0A2540;
+      letter-spacing: 6px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .name-board-light .company-name .opticore {
+      color: #0D9488;
+    }
+
+    .name-board-light .tagline-divider {
+      width: 120px;
+      height: 3px;
+      background: linear-gradient(90deg, #F97316, #0D9488);
+      border-radius: 2px;
+    }
+
+    .name-board-light .tagline {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 500;
+      font-size: 2rem;
+      color: #9CA3AF;
+      letter-spacing: 12px;
+      text-transform: uppercase;
+    }
+
+    .name-board-light .sub-info {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-top: 8px;
+    }
+
+    .name-board-light .sub-info .info-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+      color: #9CA3AF;
+      letter-spacing: 1px;
+    }
+
+    .name-board-light .sub-info .info-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #0D9488;
+    }
+
+    /* Corner accents */
+    .name-board-light .corner {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      z-index: 5;
+    }
+    .name-board-light .corner.tl { top: 20px; left: 20px; border-top: 2px solid rgba(13,148,136,0.15); border-left: 2px solid rgba(13,148,136,0.15); }
+    .name-board-light .corner.tr { top: 20px; right: 20px; border-top: 2px solid rgba(13,148,136,0.15); border-right: 2px solid rgba(13,148,136,0.15); }
+    .name-board-light .corner.bl { bottom: 20px; left: 20px; border-bottom: 2px solid rgba(249,115,22,0.1); border-left: 2px solid rgba(249,115,22,0.1); }
+    .name-board-light .corner.br { bottom: 20px; right: 20px; border-bottom: 2px solid rgba(249,115,22,0.1); border-right: 2px solid rgba(249,115,22,0.1); }
+
+  </style>
+</head>
+<body>
+  <div class="name-board-light">
+    <div class="grid-bg"></div>
+    <div class="geo-circle gc1"></div>
+    <div class="geo-circle gc2"></div>
+    <div class="glow-orb go1"></div>
+    <div class="glow-orb go2"></div>
+    <div class="top-accent"></div>
+    <div class="bottom-accent"></div>
+    <div class="corner tl"></div>
+    <div class="corner tr"></div>
+    <div class="corner bl"></div>
+    <div class="corner br"></div>
+
+    <div class="board-content">
+      <div class="logo-container">
+        <div class="logo-glow"></div>
+        <img src="../logo_og.png" alt="HANS OptiCore Logo">
+      </div>
+
+      
+
+      <div class="text-section" style="
+    /* -webkit-font-smoothing: none; */
+">
+        
+        <div class="company-name">
+          <span class="hans">HANS</span> <span class="opticore">OPTICORE</span> <span class="hans">LLP</span>
+        </div>
+        <div class="tagline-divider"></div>
+        <div class="tagline">Operational Excellence</div>
+        
+        
+        
+      </div>
+
+    </div>
+  </div>
+
+
+</body></html>
