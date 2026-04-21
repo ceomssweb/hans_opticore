@@ -6,6 +6,7 @@
       "**/.*",
       "**/node_modules/**"
     ],
+    // Removed root redirect to prevent infinite redirect loop
     "rewrites": [
       {
         "source": "**",
